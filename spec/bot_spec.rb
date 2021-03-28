@@ -53,7 +53,7 @@ describe Database do
   ***REMOVED***
 
     it "should return db file contents" do
-      expect(@database.find).to eq YAML.load(File.read('my_database.yaml'))['log']
+      expect(@database.find).to eq YAML.load(File.read(Database::LOG_FILE))['log']
   ***REMOVED***
 
 ***REMOVED***
