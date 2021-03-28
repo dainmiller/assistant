@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <u><center><h1>Dashboard | My Current Scores</h1></center></u>
+    <div style="width: 1350px; margin: 0 auto;">
+      <div style="float: left; width: 250px;">
+        <h2>Physical Health Score:</h2>
+        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/phys.txt').to_f.round(2) %></h2>
+      </div>
+
+      <div style="float: left; width: 250px;">
+        <h2>Mental Health Score:</h2>
+        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/men.txt').to_f.round(2) %></h2>
+      </div>
+      <div style="float: left; width: 250px;">
+        <h2>Spiritual Health Score:</h2>
+        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/spir.txt').to_f.round(2) %></h2>
+      </div>
+      <div style="float: left; width: 300px;">
+        <h2>Emotonial Health Score:</h2>
+        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/emo.txt').to_f.round(2) %></h2>
+      </div>
+      <div style="float: left; width: 300px;">
+        <h2>Intelligence Score:</h2>
+        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/intel.txt').to_f.round(2) %></h2>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+= What if there was TDD for productivity? =
+
+== What would that look like? ==
+
+1. Pick location for productivity task
+2. Write TDD script for that
+  * Write what 'you want to exist' just like with TDD
+  * Example TDD Productivity Scripts:
+  {{{ruby
+    # Example for checking email
+    email = Mac::Get::Emails.new(:inbox)
+    expect(emails.count).to equal 0
+
+    # Project planning
+    plan = Mac::Notes.new(:plan_for_project_a)
+    expect(plan).to_exist
+
+    # Podcast
+    podcast = Mac::File::Find.new('~/podcasts/eps/37.mp3')
+    expect(podcast).to_exist
+
+    # YouTube video for big creator
+    # 1. Pick idea
+    ideas = Notion.find(:video_ideas).all
+    idea = ideas[n]
+    expect(n).to_not be_null
+    # 2. Write script
+    script = Notion.find(idea).get_page(:script)
+    expect(script.words.count).to_be greater_than 500
+    # 3. Record video
+    video = Mac::File::Find.new('~/videos/ep/98-raw.mov')
+    expect(video).to_exist
+    # 4. Edit video
+    video = Mac::File::Find.new('~/videos/ep/98-final.mov')
+    expect(video).to_exist
+***REMOVED***}}
