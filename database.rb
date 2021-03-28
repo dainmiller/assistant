@@ -1,12 +1,5 @@
 require 'yaml/store'
 
-# Reference: Score files...
-# @@physical_health  /Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/phys.txt
-# @@mental_health    "/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/men.txt
-# @@spiritual_health "/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/spir.txt
-# @@emotional_health "/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/emo.txt
-# @@intelligence     "/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/intel.txt
-
 class Logger
   attr_reader :database
 
@@ -15,10 +8,6 @@ class Logger
 ***REMOVED***
 
   def increase_score file, addition
-    # TODO: next refactor idea...
-    # current = FileStore.read("health/#{file}.txt").to_f
-    # Database::FileStore.write("health/#{file}.txt", current+addition)
-    # Database::YamlStoree.new.save(file, addition)
     current = File.read("health/#{file}.txt").to_f
 ***REMOVED***
     p "You went from a '#{file} health' score of: #{current}"
@@ -29,12 +18,11 @@ class Logger
 ***REMOVED***
 
 class DatabaseCreator
-  def initialize
-    create_db_file
-    create_empty_log_object
-***REMOVED***
+  STORE_TYPE = {}
 
-  def create_db
+  def initialize ; ***REMOVED***
+
+  def build!
     create_db_file
     create_empty_log_object
 ***REMOVED***
@@ -45,7 +33,7 @@ class DatabaseCreator
 
   def create_empty_log_object
     connection.transaction do
-      connection[LOG_STORE] = {}
+      connection[LOG_STORE] = STORE_TYPE
       connection.commit ; connection.abort
   ***REMOVED***
 ***REMOVED***
