@@ -28,7 +28,7 @@ class DatabaseCreator
 ***REMOVED***
 
   def create_db_file
-    File.new('my_database.yaml', 'w')
+    File.new(Database::LOG_FILE, 'w')
 ***REMOVED***
 
   def create_empty_log_object
@@ -41,7 +41,8 @@ class DatabaseCreator
 
 class Database
 
-  LOG_KEY = "log"
+  LOG_KEY   = "log"
+  LOG_FILE  = 'my_database.yaml'
 
   def initialize
     DatabaseCreator.new.build! unless db_exists?
@@ -88,17 +89,17 @@ class Database
 ***REMOVED***
 
   def connection
-    @_connection ||= YAML::Store.new('my_database.yaml')
+    @_connection ||= YAML::Store.new(LOG_FILE)
 ***REMOVED***
 
   def db_contents
-    @_db_contents ||= YAML.load(File.read('my_database.yaml'))[LOG_KEY]
+    @_db_contents ||= YAML.load(File.read(LOG_FILE))[LOG_KEY]
 ***REMOVED***
 
 ***REMOVED***
 
   def db_exists?
-    File.exist?('my_database.yaml')
+    File.exist?(LOG_FILE)
 ***REMOVED***
 
 ***REMOVED***
