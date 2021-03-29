@@ -8,7 +8,7 @@ class Config::App
     @runner   = runner
     @logger   = logger
     @actions  = @runner.actions
-    @database = logger.database
+    @database = @logger.database
 ***REMOVED***
 
   def start
