@@ -8,23 +8,26 @@ class Configurator
 ***REMOVED***
 
   def start
-    @commands.prompt if ready?
+    @commands.what if ready?
 ***REMOVED***
 
   def ready?
-    verify_database_file_exists
-    verify_all_action_methods_published
+    validate
+***REMOVED***
+
+  def validate
+    db_file_exists and all_methods_published?
 ***REMOVED***
 
 ***REMOVED***
 
-  def verify_all_action_methods_published
+  def all_methods_published?
     @actions.each do |action|
       no_action_error(action) if not_implemented?(action)
   ***REMOVED***
 ***REMOVED***
 
-  def verify_database_file_exists
+  def db_file_exists?
     raise "Database file not found" if db_not_found?
 ***REMOVED***
 

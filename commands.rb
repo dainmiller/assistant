@@ -1,5 +1,7 @@
 ***REMOVED***
 
+  ADDITIVE = '0.1'.to_f.freeze
+
 ***REMOVED***
 
 ***REMOVED***
@@ -16,16 +18,18 @@
 ***REMOVED***
 
 ***REMOVED***
-    @logger   = logger
+***REMOVED***
+    enhance_internal_api
+***REMOVED***
+
+  # api ux boost 😎
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-
-
-  def prompt  ; skipper ; ***REMOVED***
-  def reset   ; skipper ; ***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
@@ -47,7 +51,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'phys', 0.1
+      success 'phys', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -76,7 +80,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'men', 0.1
+      success 'men', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -89,7 +93,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'men', 0.1
+      success 'men', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***_closet
@@ -103,7 +107,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'men', 0.2
+      success 'men', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -117,7 +121,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'spir', 0.1
+      success 'spir', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -130,7 +134,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'emo', 0.2
+      success 'emo', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -143,7 +147,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'intel', 0.1
+      success 'intel', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -156,7 +160,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'spir', 0.1
+      success 'spir', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -170,7 +174,7 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-      success 'emo', 0.1
+      success 'emo', ADDITIVE
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -192,11 +196,6 @@
 ***REMOVED***
 
 ***REMOVED***
-***REMOVED***
-***REMOVED***
-
-***REMOVED***
-    p "That's not a current option. Try again"
 ***REMOVED***
 ***REMOVED***
 

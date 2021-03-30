@@ -1,0 +1,99 @@
+
+== Current (code representation) ==
+
+{{{ruby
+  module SetA
+    class LearnToCodeCourse < InfoProduct ; ***REMOVED***
+    class WishlistApp < Product ; ***REMOVED***
+    class AllByPplApp < Product ; ***REMOVED***
+    class WebCrawler < Library ; ***REMOVED***
+    class CardMatching < Game ; ***REMOVED***
+    class LanguageForEducation < JsSuperSet ; ***REMOVED***
+    class SoftSkillsMath < TheoreticalResearch ; ***REMOVED***c
+    class GenEduContent < AppliedResearch ; ***REMOVED***
+  ***REMOVED***
+***REMOVED***}}
+
+== Timeline (code representation) ==
+
+{{{ruby
+  class Timeline
+
+    def timeline
+    activated {
+      set_a parallel=true
+  ***REMOVED***
+  exit
+    set_b parallel=true
+  ***REMOVED***
+
+  ***REMOVED***
+    def activate ; yield ; ***REMOVED***
+
+  ***REMOVED***
+    def set_a parallel=nil
+    {
+infoproduct: :learn_to_code_course,
+             products: [
+               :wishlist_app,
+             :all_by_people_app
+             ],
+             tech: [
+               :web_crawling_library(
+                   used_with: :all_by_people_app
+                   )
+             ],
+             fun: [
+               :card_matching_game
+                 :js_superset_for_education
+             ],
+             research: [
+               :soft_skills_math(:theoretical),
+             :generating_educational_content(:applied)
+             ]
+  ***REMOVED***
+***REMOVED***
+
+    def set_b parallel=nil
+    {
+products: [
+            :podcast_listening_app
+],
+tech: [
+  :podcast_crawler_lib,
+:podcast_api
+]
+  ***REMOVED***
+***REMOVED***
+
+    def set_c parallel=nil
+    {
+products: [
+            :one_result_search_engine
+],
+defi_products: [
+  :decentralized_itunes
+]
+  ***REMOVED***
+***REMOVED***
+  ***REMOVED***
+***REMOVED***}}
+
+Timeline text:
+1. Set A:
+  * Learn to Code Course (info)
+  * Wishlist App (prod)
+  * All By People App (prod)
+  * Web Crawling Library (tech)
+  * Card Matching Game (fun)
+  * JS Superset to help people learn to code (p5.js competitor)
+  * The Math of Soft Skills (theory)
+* Generated Educational Content (applied)
+  2. Set B:
+  * Podcast Listening App
+  * Podcast Crawler Lib
+  * Podcast API
+  3. Set C
+  * One Result Search Engine
+  * Decentralized iTunes
+
