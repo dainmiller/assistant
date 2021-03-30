@@ -1,18 +1,14 @@
-require_relative 'database'
+class Configurator
 
-module Config ; ***REMOVED***
-
-class Config::App
-
-  def initialize(runner:, logger:)
-    @runner   = runner
+  def initialize(commands:, logger:)
+    @commands = commands
     @logger   = logger
-    @actions  = @runner.actions
-    @database = logger.database
+    @actions  = @commands.actions
+    @database = @logger.database
 ***REMOVED***
 
   def start
-    @runner.start if ready?
+    @commands.prompt if ready?
 ***REMOVED***
 
   def ready?
@@ -32,8 +28,8 @@ class Config::App
     raise "Database file not found" if db_not_found?
 ***REMOVED***
 
-  def no_action_error
-    throw_error NoMethodError, "Commands::Runner.#{action}", 'You forgot to add the method'
+  def no_action_error action
+    throw_error NoMethodError, "Commands.#{action}", 'You forgot to add the method'
 ***REMOVED***
 
   def throw_error error_type, location, user_text
@@ -45,7 +41,7 @@ class Config::App
 ***REMOVED***
 
   def not_implemented? action
-    not [@runner.methods - Object.methods].flatten!.include? action
+    not [@commands.methods - Object.methods].flatten!.include? action
 ***REMOVED***
 
 ***REMOVED***

@@ -1,6 +1,5 @@
-module Commands ; ***REMOVED***
+***REMOVED***
 
-***REMOVED***::Runner
 ***REMOVED***
 
 ***REMOVED***
@@ -18,11 +17,15 @@ module Commands ; ***REMOVED***
 
 ***REMOVED***
     @logger   = logger
-    @actions  = @@cmd_to_action_mapper.values
 ***REMOVED***
 
-  def start ; skipper ; ***REMOVED***
-  def reset ; skipper ; ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+
+
+  def prompt  ; skipper ; ***REMOVED***
+  def reset   ; skipper ; ***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
@@ -148,7 +151,7 @@ module Commands ; ***REMOVED***
 ***REMOVED***
 
 ***REMOVED***
-    p "Prepare to practice Kung Fu or Tai Chi"
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***

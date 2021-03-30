@@ -1,6 +1,10 @@
 require 'yaml/store'
+require_relative 'insertion'
 
-class Logger
+class Decorator ; ***REMOVED***
+class Utility ; ***REMOVED***
+
+class Logger < Decorator
   attr_reader :database
 
   def initialize
@@ -60,6 +64,10 @@ class Database
     insert do |row|
       row[key] = value
   ***REMOVED***
+***REMOVED***
+
+  def all
+    db_contents
 ***REMOVED***
 
   def exists?
