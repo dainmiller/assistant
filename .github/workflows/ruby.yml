@@ -25,6 +25,8 @@ jobs:
       uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
         ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true
+        bundler-cache: false
+    - name: Install dep***REMOVED***encies
+      run: bundle install
     - name: Run tests
-      run: rspec /spec --format=documentation
+      run: rspec spec/bot_spec.rb --format=documentation
