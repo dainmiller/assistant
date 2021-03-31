@@ -96,6 +96,3 @@ describe Database do
   ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-
-def setup_scoring logger
-***REMOVED***
