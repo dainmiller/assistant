@@ -8,7 +8,7 @@ class Configurator
 ***REMOVED***
 
   def start
-    @commands.what if ready?
+    @commands.cli if ready?
 ***REMOVED***
 
   def ready?
@@ -16,7 +16,7 @@ class Configurator
 ***REMOVED***
 
   def validate
-    db_file_exists and all_methods_published?
+    db_file_exists? and all_methods_published?
 ***REMOVED***
 
 ***REMOVED***
@@ -25,10 +25,12 @@ class Configurator
     @actions.each do |action|
       no_action_error(action) if not_implemented?(action)
   ***REMOVED***
+    success
 ***REMOVED***
 
   def db_file_exists?
     raise "Database file not found" if db_not_found?
+    success
 ***REMOVED***
 
   def no_action_error action
@@ -48,6 +50,12 @@ class Configurator
 
   def not_implemented? action
     not [@commands.methods - Object.methods].flatten!.include? action
+***REMOVED***
+
+***REMOVED***
+
+  def success
+    true
 ***REMOVED***
 
 ***REMOVED***

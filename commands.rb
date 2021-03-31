@@ -21,9 +21,9 @@
 ***REMOVED***
 ***REMOVED***
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def cli   ; skipper ; ***REMOVED***
+  def start ; skipper ; ***REMOVED***
+  def reset ; skipper ; ***REMOVED***
 
 ***REMOVED***
 ***REMOVED***
@@ -191,6 +191,10 @@
 ***REMOVED***
 ***REMOVED***
 
+***REMOVED***
+
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 
 ***REMOVED***

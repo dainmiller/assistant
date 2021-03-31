@@ -60,7 +60,7 @@ class Database
 ***REMOVED***
 
   def find key
-    # TODO: return value for key
+    # TODO: implement
 ***REMOVED***
 
   def save key, value
