@@ -82,7 +82,7 @@ class Database
       begin
         row = client[LOG_KEY][today][now] = {}
       rescue
-        if client.key? LOG_KEY
+        if YAML.load(File.read(LOG_FILE)).key? LOG_KEY
           client[LOG_KEY][today] = {}
           row = client[LOG_KEY][today][now] = {}
     ***REMOVED***

@@ -78,17 +78,17 @@ describe Database do
   ***REMOVED***
 
     describe "#.find" do
-      xit 'should return specific value for key' do
+      it 'should return specific value for key' do
     ***REMOVED***
   ***REMOVED***
 
     describe "#.save" do
-      xit 'should allow you to save to db' do
+      it 'should allow you to save to db' do
     ***REMOVED***
   ***REMOVED***
 
     describe "#.all" do
-      xit 'should return all the data in the db' do
+      it 'should return all the data in the db' do
     ***REMOVED***
   ***REMOVED***
 
