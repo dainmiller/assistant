@@ -5,7 +5,7 @@ class Decorator ; ***REMOVED***
 class Utility ; ***REMOVED***
 
 class Logger < Decorator
-  attr_reader :database
+  attr_accessor :database
 
   def initialize
     @database = Database.new
@@ -37,7 +37,7 @@ class DatabaseCreator
 
   def create_empty_log_object
     connection.transaction do
-      connection[LOG_STORE] = STORE_TYPE
+      connection[LOG_STORE] = {}
       connection.commit ; connection.abort
   ***REMOVED***
 ***REMOVED***
@@ -56,8 +56,12 @@ class Database
     connection
 ***REMOVED***
 
-  def find
+  def all
     db_contents
+***REMOVED***
+
+  def find key
+    # TODO: return value for key
 ***REMOVED***
 
   def save key, value
@@ -66,9 +70,6 @@ class Database
   ***REMOVED***
 ***REMOVED***
 
-  def all
-    db_contents
-***REMOVED***
 
   def exists?
     db_exists? and db_contents.any?
@@ -81,8 +82,12 @@ class Database
       begin
         row = client[LOG_KEY][today][now] = {}
       rescue
-        client[LOG_KEY][today] = {}
-        row = client[LOG_KEY][today][now] = {}
+        if client.key? LOG_KEY
+          client[LOG_KEY][today] = {}
+          row = client[LOG_KEY][today][now] = {}
+    ***REMOVED***
+          client[LOG_KEY] = {}
+      ***REMOVED***
     ***REMOVED***
       yield row
   ***REMOVED***

@@ -32,7 +32,10 @@ class Configurator
 ***REMOVED***
 
   def no_action_error action
-    throw_error NoMethodError, "Commands.#{action}", 'You forgot to add the method'
+    throw_error(NoMethodError, 
+      "Commands.#{action}", 
+      'You forgot to add the method'
+    )
 ***REMOVED***
 
   def throw_error error_type, location, user_text
