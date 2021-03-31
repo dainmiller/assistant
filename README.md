@@ -6,7 +6,9 @@
 
 2. `brew update ruby`
 
-3. terminal |> `ruby run.rb`
+3. terminal |> `ruby run.rb` for cli app
+
+4. terminal |> `ruby server.rb` for dashboard
 
 Now the bot will start talking to you and asking questions.
 

@@ -1,5 +1,4 @@
 require 'yaml/store'
-require_relative 'insertion'
 
 class Decorator ; ***REMOVED***
 class Utility ; ***REMOVED***
