@@ -10,6 +10,13 @@ class Logger < Decorator
     @database = Database.new
 ***REMOVED***
 
+  def men   ; File.read("health/men.txt").strip   ; ***REMOVED***
+  def emo   ; File.read("health/emo.txt").strip   ; ***REMOVED***
+  def phys  ; File.read("health/phys.txt").strip  ; ***REMOVED***
+  def spir  ; File.read("health/spir.txt").strip  ; ***REMOVED***
+  def intel ; File.read("health/intel.txt").strip ; ***REMOVED***
+  def files ; { phys: phys, men: men, emo: emo, intel: intel, spir: spir } ; ***REMOVED***
+
   def increase_score file, addition
     current = File.read("health/#{file}.txt").to_f
 ***REMOVED***

@@ -3,31 +3,68 @@
   <head>
     <title>Personal Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .yo {
+        background: #eee;
+        margin: 10px;
+        border-radius: 10px;
+    ***REMOVED***
+      .database-r***REMOVED***ering {
+        margin: 0 auto;
+        width: 1300px;
+    ***REMOVED***
+      .day { 
+        float: left; 
+        width: 200px;
+    ***REMOVED***
+    </style>
   </head>
   <body>
     <u><center><h1>Dashboard | My Current Scores</h1></center></u>
-    <div style="width: 1350px; margin: 0 auto;">
-      <div style="float: left; width: 250px;">
-        <h2>Physical Health Score:</h2>
-        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/phys.txt').to_f.round(2) %></h2>
+    <center>
+      <div style="width: 1500px;">
+        <div class="yo" style="float: left; width: 250px;">
+          <h2>Physical Health Score:</h2>
+          <h2><%= @phys %></h2>
+        </div>
+        <div class="yo" style="float: left; width: 250px;">
+          <h2>Mental Health Score:</h2>
+          <h2><%= @men %></h2>
+        </div>
+        <div class="yo" style="float: left; width: 250px;">
+          <h2>Spiritual Health Score:</h2>
+          <h2><%= @spir %></h2>
+        </div>
+        <div class="yo" style="float: left; width: 300px;">
+          <h2>Emotonial Health Score:</h2>
+          <h2><%= @emo %></h2>
+        </div>
+        <div class="yo" style="float: left; width: 300px;">
+          <h2>Intelligence Score:</h2>
+          <h2><%= @intel %></h2>
+        </div>
+        <div class="yo" style="float: left; width: 300px;">
+          <h2>Financial Score:</h2>
+          <h2><%= @fin %></h2>
+        </div>
       </div>
-
-      <div style="float: left; width: 250px;">
-        <h2>Mental Health Score:</h2>
-        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/men.txt').to_f.round(2) %></h2>
+      <div style="clear: both; overflow: hidden;"></div>
+      <div class="database-r***REMOVED***ering">
+        <% @db.each do |date, obj| %>
+          <div class="day">
+            <h3><%= date %></h3>
+            <% obj.each do |timestamp, sc| %>
+              <%= timestamp.split(' ')[1] %>
+              <% sc.each do |action,score| %>
+                <b><%= action %></b>: 
+                <%= score %>
+              <% ***REMOVED*** %>
+              <br />
+            <% ***REMOVED*** %>
+          </div>
+        <% ***REMOVED*** %>
       </div>
-      <div style="float: left; width: 250px;">
-        <h2>Spiritual Health Score:</h2>
-        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/spir.txt').to_f.round(2) %></h2>
-      </div>
-      <div style="float: left; width: 300px;">
-        <h2>Emotonial Health Score:</h2>
-        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/emo.txt').to_f.round(2) %></h2>
-      </div>
-      <div style="float: left; width: 300px;">
-        <h2>Intelligence Score:</h2>
-        <h2><%= File.read('/Users/dain/Dropbox/notes-main/proj/a_set/3-fun/ai-bot/health/intel.txt').to_f.round(2) %></h2>
-      </div>
-    </div>
+    </center>
   </body>
 </html>
+

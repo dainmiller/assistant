@@ -36,8 +36,8 @@ describe Logger do
       test_file = '_tmp/phys'
       old_score = File.read("health/#{test_file}.txt").to_f
 
-      # Hotswap db file for test
-      # (constant assignment allowed in rspec context)
+      # Hotswap db file for test db
+      # (constant assignment allowed in rspec only)
       Database::LOG_FILE = 'spec/test_database.yml'
       @logger.database = Database.new
 

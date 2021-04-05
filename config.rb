@@ -24,8 +24,7 @@ class Configurator
   def all_methods_published?
     @actions.each do |action|
       no_action_error(action) if not_implemented?(action)
-  ***REMOVED***
-    success
+  ***REMOVED*** and success
 ***REMOVED***
 
   def db_file_exists?
