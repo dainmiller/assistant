@@ -1,10 +1,10 @@
 # Personal Assistant CLI Bot
 
-Bot CLI:
-<img width="482" alt="Screen Shot 2021-04-05 at 4 41 24 PM" src="https://user-images.githubusercontent.com/46613794/113624523-c3f15580-962d-11eb-8add-a02f57799ba6.png">
-
-Score Dashboard:
+## Score Dashboard:
 <img width="1620" alt="Screen Shot 2021-04-05 at 4 40 48 PM" src="https://user-images.githubusercontent.com/46613794/113624485-b936c080-962d-11eb-80b7-537cef16d323.png">
+
+## Bot CLI:
+<img width="482" alt="Screen Shot 2021-04-05 at 4 41 24 PM" src="https://user-images.githubusercontent.com/46613794/113624523-c3f15580-962d-11eb-8add-a02f57799ba6.png">
 
 ## How to Use
 
