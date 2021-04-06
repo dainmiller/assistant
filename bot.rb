@@ -1,8 +1,7 @@
-require 'date'
-require 'yaml/store'
-require_relative 'config'
-require_relative 'database'
-require_relative 'commands'
+require_relative 'services/launcher'
+require_relative 'services/logger'
+require_relative 'db/database'
+require_relative 'config/commands'
 
 class Bot
   attr_reader :logger, :commands
@@ -19,12 +18,12 @@ class Bot
     p "Welcome to another day in your life"
     p "Let's jump right into the day..."
 
-    @configurator = Configurator.new(
+    @launcher = Launcher.new(
       commands: @commands,
       logger: @logger
     )
 
-    @configurator.start
+    @launcher.launch
 ***REMOVED***
 
 ***REMOVED***

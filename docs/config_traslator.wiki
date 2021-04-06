@@ -1,0 +1,3 @@
+# Config Translator
+
+Uses the data in [[../config/data/]]

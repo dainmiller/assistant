@@ -1,73 +1,22 @@
 require 'yaml/store'
+require 'date'
 
 class Decorator ; ***REMOVED***
 class Utility ; ***REMOVED***
 
-class Logger < Decorator
-  attr_accessor :database
-
-  def initialize
-    @database = Database.new
-***REMOVED***
-
-  def men   ; File.read("health/men.txt").strip   ; ***REMOVED***
-  def emo   ; File.read("health/emo.txt").strip   ; ***REMOVED***
-  def phys  ; File.read("health/phys.txt").strip  ; ***REMOVED***
-  def spir  ; File.read("health/spir.txt").strip  ; ***REMOVED***
-  def intel ; File.read("health/intel.txt").strip ; ***REMOVED***
-  def files ; { phys: phys, men: men, emo: emo, intel: intel, spir: spir } ; ***REMOVED***
-
-  def increase_score file, addition
-    current = File.read("health/#{file}.txt").to_f
-***REMOVED***
-    p "You went from a '#{file} health' score of: #{current}"
-    p "To the increased score..#{current+addition}"
-    File.write("health/#{file}.txt", current+addition)
-    @database.save(file, addition)
-***REMOVED***
-***REMOVED***
-
-class DatabaseCreator
-  STORE_TYPE = {}
-
-  def initialize ; ***REMOVED***
-
-  def build!
-    create_db_file
-    create_empty_log_object
-***REMOVED***
-
-  def create_db_file
-    File.new(Database::LOG_FILE, 'w')
-***REMOVED***
-
-  def create_empty_log_object
-    connection.transaction do
-      connection[LOG_STORE] = {}
-      connection.commit ; connection.abort
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
 
 class Database
 
-  LOG_KEY   = "log"
-  LOG_FILE  = 'my_database.yaml'
+  LOG_KEY   = 'log'
+  LOG_FILE  = '/Users/dain/Dropbox/notes-main/proj/a_set/1-product/ai-bot/db/data/my_database.yaml'
 
   def initialize
-    DatabaseCreator.new.build! unless db_exists?
-***REMOVED***
-
-  def client
-    connection
+    @connection ||= YAML::Store.new(LOG_FILE)
+    DbInit.new(@connection).build! unless db_exists?
 ***REMOVED***
 
   def all
-    db_contents
-***REMOVED***
-
-  def find key
-    # TODO: implement
+    contents
 ***REMOVED***
 
   def save key, value
@@ -76,27 +25,37 @@ class Database
   ***REMOVED***
 ***REMOVED***
 
-
   def exists?
-    db_exists? and db_contents.any?
+    db_exists? and contents.any?
 ***REMOVED***
 
 ***REMOVED***
 
   def insert
-    client.transaction do
-      begin
-        row = client[LOG_KEY][today][now] = {}
-      rescue
-        if YAML.load(File.read(LOG_FILE)).key? LOG_KEY
-          client[LOG_KEY][today] = {}
-          row = client[LOG_KEY][today][now] = {}
-    ***REMOVED***
-          client[LOG_KEY] = {}
-      ***REMOVED***
-    ***REMOVED***
-      yield row
+    @connection.transaction do
+      yield stamp
   ***REMOVED***
+***REMOVED***
+
+  def stamp
+    get_today()[now] = {}
+***REMOVED***
+
+***REMOVED***
+
+  def get_today
+    begin @connection[LOG_KEY][today]
+    rescue
+      @connection[LOG_KEY][today] = {}
+  ***REMOVED***
+***REMOVED***
+
+  def file
+    File.read(LOG_FILE)
+***REMOVED***
+
+  def yaml file
+    YAML.load file
 ***REMOVED***
 
   def today
@@ -107,14 +66,8 @@ class Database
     Time.new.to_s
 ***REMOVED***
 
-  def connection
-    @_connection ||= YAML::Store.new(LOG_FILE)
-***REMOVED***
-
-  def db_contents
-    @_db_contents ||= YAML.load(File.read(LOG_FILE))[LOG_KEY]
-***REMOVED***
-
+  def contents
+    yaml(file)[LOG_KEY]
 ***REMOVED***
 
   def db_exists?

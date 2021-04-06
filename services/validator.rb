@@ -1,24 +1,25 @@
-class Configurator
+class Validator
 
-  def initialize(commands:, logger:)
-    @commands = commands
-    @logger   = logger
+  def initialize(launcher:)
+    @commands = launcher.commands
+    @logger   = launcher.logger
     @actions  = @commands.actions
     @database = @logger.database
 ***REMOVED***
 
-  def start
-    @commands.cli if ready?
+  def valid?
+    validate
 ***REMOVED***
 
-  def ready?
-    validate
 ***REMOVED***
 
   def validate
     db_file_exists? and all_methods_published?
 ***REMOVED***
 
+  def db_file_exists?
+    raise "Database file not found" if db_not_found?
+    success
 ***REMOVED***
 
   def all_methods_published?
@@ -27,9 +28,8 @@ class Configurator
   ***REMOVED*** and success
 ***REMOVED***
 
-  def db_file_exists?
-    raise "Database file not found" if db_not_found?
-    success
+  def not_implemented? action
+    not [@commands.methods - Object.methods].flatten!.include? action
 ***REMOVED***
 
   def no_action_error action
@@ -45,10 +45,6 @@ class Configurator
 
   def db_not_found?
     not @database.exists?
-***REMOVED***
-
-  def not_implemented? action
-    not [@commands.methods - Object.methods].flatten!.include? action
 ***REMOVED***
 
 ***REMOVED***

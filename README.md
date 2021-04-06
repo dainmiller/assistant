@@ -20,7 +20,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ### Misc.
 
-- [ ] Add support for toggling the database contents from source control (`/health`) files, via gitignore
+- [ ] Add support for toggling the database contents from source control (`/config/health`) files, via gitignore
 
 ## How to Use
 
@@ -28,14 +28,14 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 2. Run `brew update ruby`
 
-3.a. Then in the project directory, run `ruby run.rb` for CLI app
+3.a. Then in the project directory, run `ruby bin/start.rb` for CLI app
 
-3.b. & run... `ruby server.rb` for dashboard
+3.b. & run... `ruby server/server.rb` for dashboard
 
 Now the bot will start talking to you and asking questions
 
 ## How to Customize
 
-1. Edit the `Commands.rb` class to include the habits you're trying to build
+1. Edit the `config/data/commands.yaml` class to include the habits you're trying to build
 
-2. Set the `health/*` files to include your current scores out of 10
+2. Set the `config/health/*` files to include your current scores out of 10
