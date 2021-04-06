@@ -1,7 +1,7 @@
 ---
 commands:
   meta: 
-    description: "This is the habit file. Use `_` syntax for types."
+    description: "This is the habit file."
   health:
     - brush_teeth: 
       - type: bool
