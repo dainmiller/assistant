@@ -1,7 +1,52 @@
+require 'yaml'
+
 class Hash
   def then &block
     block.call
   end
+end
+
+# PROTOTYPE CLASS - NOT REFACTORED AT ALL
+# Checkpoint - fully working dynamic system
+class CommandTest
+  @@cmds = []
+
+  def initialize
+    thing = YAML.load(File.read('config/data/commands.yaml'))
+    thing.each do |obj|
+      meth_name = obj.keys.flatten.first
+      @@cmds << meth_name
+      define_singleton_method(meth_name) do
+        obj.values.map { |e|
+          puts e[4].values
+        }
+        bool = gets.strip
+        return skipper if bool == 'skip'
+        if bool == 'yes'
+          obj.values.map { |e| 
+            Logger.new.increase_score e[1].values.first, Commands::ADDITIVE
+          }
+          skipper
+        else
+          self.send(meth_name)
+        end
+      end
+    end
+  end
+
+  def skipper
+    p "======================================"
+    p "Pick what you want to do next."
+    obj = {}
+    @@cmds.each_with_index do |cmd, i|
+      obj[i] = cmd
+    end
+    puts obj.to_yaml
+    user_selects = gets.strip
+    t = obj.find { |e| e[0].to_i == "#{user_selects}".to_i } # puts e e == user_selects }
+    self.send(t[1])
+  end
+
 end
 
 class Commands

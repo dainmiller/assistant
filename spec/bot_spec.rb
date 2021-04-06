@@ -2,6 +2,15 @@ require           'yaml'
 require_relative  '../bot.rb'
 require_relative  '../config/commands.rb'
 
+describe CommandTest do
+
+  it 'should define methods' do
+    c = CommandTest.new
+    c.brush_teeth
+  end
+
+end
+
 describe Bot do
 
   describe "#.run" do
@@ -30,7 +39,7 @@ describe Logger do
   end
 
   describe "#.increase_score" do
-    it "should add an additive int to the base score" do
+    xit "should add an additive int to the base score" do
       # Setup
       additive  = Commands::ADDITIVE
       file      = '_tmp/phys'
