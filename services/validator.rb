@@ -29,7 +29,15 @@ class Validator
 ***REMOVED***
 
   def not_implemented? action
-    not [@commands.methods - Object.methods].flatten!.include? action
+    not [implemented - globals].flatten!.include? action
+***REMOVED***
+
+  def implemented
+    @commands.methods
+***REMOVED***
+
+  def globals
+    Object.methods
 ***REMOVED***
 
   def no_action_error action
