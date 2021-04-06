@@ -16,7 +16,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ### Priority Path
 
-- [ ] [[config/commands.yaml]] More streamlined system for reading commands and config options from a file
+- [ ] [[services/config_traslator]] More streamlined system for reading commands and config options from a file
 
 ### Misc.
 
