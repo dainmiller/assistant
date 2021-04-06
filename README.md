@@ -30,9 +30,9 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 2. Run `brew update ruby`
 
-3.a. Then in the project directory, run `ruby bin/start.rb` for CLI app
+3. Then in the project directory, run `ruby bin/start.rb` for CLI app
 
-3.b. & run... `ruby server/server.rb` for dashboard
+4. & run... `ruby server/server.rb` for dashboard
 
 Now the bot will start talking to you and asking questions
 
