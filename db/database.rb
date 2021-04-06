@@ -33,11 +33,11 @@ class Database
 
   def insert
     @connection.transaction do
-      yield stamp
+      yield row
     end
   end
 
-  def stamp
+  def row
     get_today()[now] = {}
   end
 
