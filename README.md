@@ -11,12 +11,12 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ## To Do
 
-### Priority Path
+#### Priority Path
 
 - [ ] More streamlined system for reading commands and config options from a file [[services/config_traslator]]
 - [ ] Add support to set name
 
-### Misc.
+#### Misc.
 
 - [ ] Add support for toggling the database contents from source control (`/config/health`) files, via gitignore
 
