@@ -23,7 +23,6 @@
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-    # 14 => :sales,
 ***REMOVED***
 
 ***REMOVED***
@@ -39,7 +38,6 @@
 ***REMOVED***
 
 ***REMOVED***
-    puts 'hey'
 ***REMOVED***
 ***REMOVED***
   ***REMOVED***.then { sleep(2) and reset }
