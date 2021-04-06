@@ -12,41 +12,68 @@ class CommandTest
   @@cmds = []
 
   def initialize
-    thing = YAML.load(File.read('config/data/commands.yaml'))
-    thing.each do |obj|
-      meth_name = obj.keys.flatten.first
-      @@cmds << meth_name
-      define_singleton_method(meth_name) do
-        obj.values.map { |e|
-          puts e[4].values
-        }
-        bool = gets.strip
-        return skipper if bool == 'skip'
-        if bool == 'yes'
-          obj.values.map { |e| 
-            Logger.new.increase_score e[1].values.first, Commands::ADDITIVE
-          }
-          skipper
-        else
-          self.send(meth_name)
-        end
-      end
+    file = YAML.load(File.read('config/data/commands.yaml'))
+    file.each do |obj|
+      build_method obj
     end
+    @method_mapper = {}
+  end
+
+  def build_method obj
+    meth_name = obj.keys.flatten.first
+    @@cmds << meth_name
+    define_singleton_method(meth_name) do
+      method_definition obj: obj
+    end
+  end
+
+  def method(obj:)
+    p prompt(obj)
+    bool = gets.strip
+    return skipper if bool == 'skip'
+    if bool == 'yes'
+      log obj
+      success
+    else
+      self.send(meth_name)
+    end
+  end
+
+  def log obj
+    obj.values.map { |e| 
+      Logger.new.increase_score e[1].values.first, Commands::ADDITIVE
+    }
+  end
+
+  def prompt obj
+    obj.values.map { |e|
+      return e[4].values
+    }
   end
 
   def skipper
     p "======================================"
     p "Pick what you want to do next."
-    obj = {}
-    @@cmds.each_with_index do |cmd, i|
-      obj[i] = cmd
-    end
-    puts obj.to_yaml
+    p dynamic_dialogue
     user_selects = gets.strip
-    t = obj.find { |e| e[0].to_i == "#{user_selects}".to_i } # puts e e == user_selects }
-    self.send(t[1])
+    self.send(find_method(obj))
+  end
+  
+  def dynamic_dialogue
+    @@cmds.each_with_index do |cmd, i|
+      @method_mapper[i] = cmd
+    end
+    return @method_mapper
+  end
+  
+  def find_method obj
+    method_obj = obj.find { |e| e[0].to_i == "#{user_selects}".to_i }
+    return method_obj[1]
   end
 
+  def success
+    true
+  end
 end
 
 class Commands
