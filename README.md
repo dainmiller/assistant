@@ -13,7 +13,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ### Priority Path
 
-- [ ] [[services/config_traslator]] More streamlined system for reading commands and config options from a file
+- [ ] More streamlined system for reading commands and config options from a file [[services/config_traslator]]
 - [ ] Add support to set name
 
 ### Misc.
