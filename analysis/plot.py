@@ -23,16 +23,16 @@ class Plotting:
                 for timestamp in db['log'][date_of_logs]:
                     datetime = parser.parse(timestamp)
                     time = datetime.time().strftime("%H:%M")
-                    x_timestamp.app***REMOVED***(time)
+                    x_timestamp.append(time)
                     for action in db['log'][date_of_logs][timestamp]:
                         value = db['log'][date_of_logs][timestamp][action]
-                        y_score.app***REMOVED***(value)
+                        y_score.append(value)
         plt.figure(figsize=(14,7))
         plt.plot(x_timestamp, y_score, color='Green', marker='d', label='water')
         plt.ylabel("Score from Activity")
         plt.xlabel("Time of Activity")
         plt.title("Activities in Day by Time")
-        plt.leg***REMOVED***(loc=1)
+        plt.legend(loc=1)
         plt.show()
 
     def grouped_by_activity_daily_log(self):
@@ -40,8 +40,8 @@ class Plotting:
             db                  = yaml.load(file, Loader=yaml.FullLoader)
             structure_starts    = db['log']
 
-      ***REMOVED***_labels    = []
-      ***REMOVED***_y         = []
+            water_labels    = []
+            water_y         = []
             phys_labels     = []
             phys_y          = []
             men_labels      = []
@@ -57,27 +57,27 @@ class Plotting:
             timestamps_in_day   = []
 
             for _date in structure_starts:
-                all_dates_with_data.app***REMOVED***(_date)
+                all_dates_with_data.append(_date)
                 timestamps = structure_starts[_date]
                 for time in timestamps:
-                    timestamps_in_day.app***REMOVED***(self.py_time(time))
+                    timestamps_in_day.append(self.py_time(time))
                     actions = timestamps[time]
                     for action in actions:
                         value = actions[action]
                         if action == "water":
-                      ***REMOVED***_labels.app***REMOVED***(action)
-                      ***REMOVED***_y.app***REMOVED***(value)
+                            water_labels.append(action)
+                            water_y.append(value)
                         elif action == "phys":
-                            phys_y.app***REMOVED***(value)
-                            phys_labels.app***REMOVED***(action)
+                            phys_y.append(value)
+                            phys_labels.append(action)
                         elif action == "men":
-                            men_labels.app***REMOVED***(action)
+                            men_labels.append(action)
                         elif action == "spir":
-                            spir_labels.app***REMOVED***(action)
+                            spir_labels.append(action)
                         elif action == "emo":
-                            emo_labels.app***REMOVED***(action)
+                            emo_labels.append(action)
                         elif action == "intel":
-                            intel_labels.app***REMOVED***(action)
+                            intel_labels.append(action)
 
 
             timestamps_for_phys = timestamps_in_day
@@ -100,7 +100,7 @@ class Plotting:
             plt.figure(figsize=(14,7))
             plt.plot(timestamps_in_day, water_y, color="Green", marker='d', label='Water')
             plt.plot(timestamps_for_phys, phys_y, color="Red", marker='d', label='Phys')
-            plt.leg***REMOVED***(loc=1)
+            plt.legend(loc=1)
 
             plt.show()
 

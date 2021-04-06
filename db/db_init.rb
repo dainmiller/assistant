@@ -3,21 +3,21 @@ class DbInit
 
   def initialize connection
     @connection = connection
-***REMOVED***
+  end
 
   def build!
     create_db_file
     create_empty_log_object
-***REMOVED***
+  end
 
   def create_db_file
     File.new(Database::LOG_FILE, 'w')
-***REMOVED***
+  end
 
   def create_empty_log_object
     @connection.transaction do
       connection[LOG_STORE] = {}
       connection.commit ; connection.abort
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    end
+  end
+end

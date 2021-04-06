@@ -1,8 +1,8 @@
 require 'yaml/store'
 require 'date'
 
-class Decorator ; ***REMOVED***
-class Utility ; ***REMOVED***
+class Decorator ; end
+class Utility ; end
 
 
 class Database
@@ -13,65 +13,65 @@ class Database
   def initialize
     @connection ||= YAML::Store.new(LOG_FILE)
     DbInit.new(@connection).build! unless db_exists?
-***REMOVED***
+  end
 
   def all
     contents
-***REMOVED***
+  end
 
   def save key, value
     insert do |row|
       row[key] = value
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
   def exists?
     db_exists? and contents.any?
-***REMOVED***
+  end
 
-***REMOVED***
+  private
 
   def insert
     @connection.transaction do
       yield stamp
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
   def stamp
     get_today()[now] = {}
-***REMOVED***
+  end
 
-***REMOVED***
+  protected
 
   def get_today
     begin @connection[LOG_KEY][today]
     rescue
       @connection[LOG_KEY][today] = {}
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
   def file
     File.read(LOG_FILE)
-***REMOVED***
+  end
 
   def yaml file
     YAML.load file
-***REMOVED***
+  end
 
   def today
     Date.today
-***REMOVED***
+  end
 
   def now
     Time.new.to_s
-***REMOVED***
+  end
 
   def contents
     yaml(file)[LOG_KEY]
-***REMOVED***
+  end
 
   def db_exists?
     File.exist?(LOG_FILE)
-***REMOVED***
+  end
 
-***REMOVED***
+end

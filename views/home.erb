@@ -8,15 +8,15 @@
         background: #eee;
         margin: 10px;
         border-radius: 10px;
-    ***REMOVED***
-      .database-r***REMOVED***ering {
+      }
+      .database-rendering {
         margin: 0 auto;
         width: 1300px;
-    ***REMOVED***
+      }
       .day { 
         float: left; 
         width: 200px;
-    ***REMOVED***
+      }
     </style>
   </head>
   <body>
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div style="clear: both; overflow: hidden;"></div>
-      <div class="database-r***REMOVED***ering">
+      <div class="database-rendering">
         <% @db.each do |date, obj| %>
           <div class="day">
             <h3><%= date %></h3>
@@ -58,11 +58,11 @@
               <% sc.each do |action,score| %>
                 <b><%= action %></b>: 
                 <%= score %>
-              <% ***REMOVED*** %>
+              <% end %>
               <br />
-            <% ***REMOVED*** %>
+            <% end %>
           </div>
-        <% ***REMOVED*** %>
+        <% end %>
       </div>
     </center>
   </body>

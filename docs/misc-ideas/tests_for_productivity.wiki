@@ -33,4 +33,4 @@
     # 4. Edit video
     video = Mac::File::Find.new('~/videos/ep/98-final.mov')
     expect(video).to_exist
-***REMOVED***}}
+  }}}

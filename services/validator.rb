@@ -5,61 +5,61 @@ class Validator
     @logger   = launcher.logger
     @actions  = @commands.actions
     @database = @logger.database
-***REMOVED***
+  end
 
   def valid?
     validate
-***REMOVED***
+  end
 
-***REMOVED***
+  private
 
   def validate
     db_file_exists? and all_methods_published?
-***REMOVED***
+  end
 
   def db_file_exists?
     raise "Database file not found" if db_not_found?
     success
-***REMOVED***
+  end
 
   def all_methods_published?
     @actions.each do |action|
       no_action_error(action) if not_implemented?(action)
-  ***REMOVED*** and success
-***REMOVED***
+    end and success
+  end
 
   def not_implemented? action
     not [implemented - globals].flatten!.include? action
-***REMOVED***
+  end
 
   def implemented
     @commands.methods
-***REMOVED***
+  end
 
   def globals
     Object.methods
-***REMOVED***
+  end
 
   def no_action_error action
     throw_error(NoMethodError, 
       "Commands.#{action}", 
       'You forgot to add the method'
     )
-***REMOVED***
+  end
 
   def throw_error error_type, location, user_text
     raise error_type, location, user_text
-***REMOVED***
+  end
 
   def db_not_found?
     not @database.exists?
-***REMOVED***
+  end
 
-***REMOVED***
+  protected
 
   def success
     true
-***REMOVED***
+  end
 
-***REMOVED***
+end
 

@@ -10,4 +10,4 @@ get '/' do
   @intel  = File.read('../config/health/intel.txt')
   @fin    = File.read('../config/health/fin.txt')
   erb :home
-***REMOVED***
+end

@@ -1,249 +1,250 @@
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+class Hash
+  def then &block
+    block.call
+  end
+end
 
-***REMOVED***
+class Commands
 
-***REMOVED***
+  ADDITIVE = '0.01'.to_f.freeze
 
-***REMOVED***
+  attr_reader :actions
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  @@cmd_to_action_mapper = {
+    1  => :walk,
+    2  => :water,
+    3  => :clean,
+    4  => :clean_closet,
+    5  => :work,
+    6  => :read_spirit,
+    7  => :meditate,
+    8  => :kung_fu_tai_chi,
+    9  => :read_nonfic,
+    10 => :journal,
+    11 => :brush_teeth,
+    12 => :wash_face,
+  }
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def initialize(logger:)
+    @logger = logger
+  end
 
-  def cli   ; skipper ; ***REMOVED***
-  def start ; skipper ; ***REMOVED***
-  def reset ; skipper ; ***REMOVED***
+  # API ux improvements
+  def cli   ; skipper ; end
+  def open  ; skipper ; end
+  def start ; skipper ; end
+  def reset ; skipper ; end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def actions
+    @@cmd_to_action_mapper.values
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***.then { sleep(2) and reset }
-***REMOVED***
+  def scores
+    @logger.files.each do |file, score|
+      p "Score: #{score} for area of life - #{file}"
+    end.then { sleep(2) and reset }
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-    execute(gets.strip)
-***REMOVED***
+  def skipper
+    p "------------------------------------------------------"
+    p "Pick what you want to do next (pick by name or number)"
+    p "(note -- you can type `score` to get your score anytime)"
+    @@cmd_to_action_mapper.each do |cmd, action|
+      p "#{cmd}. #{action}"
+    end
+    execute gets.strip
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def brush_teeth
+    p "Did you brush your teeth?"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == 'yes'
+      log 'phys', ADDITIVE
+    else
+      brush_teeth
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def wash_face
+    p "Did you wash your face?"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == 'yes'
+      log 'phys', ADDITIVE
+    else
+      wash_face
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def water
+    p "Did you drink 1 bottle and fill up another (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'phys', ADDITIVE
+    else
+      p "Go get some water before anything else"
+      p "This will reduce any headaches brother"
+      water
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+  def walk
+    p "Start walking..."
+    p "How long did you walk in minutes (e.g. 80)?"
+    mins = gets.strip.to_i
+    return reset if mins == 0
+    if mins > 100
+      log 'phys', 0.15
+    elsif mins < 100 and mins > 60
+      log 'phys', 0.1
+    else
+      log 'phys', 0.05
+    end
+    reset
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def clean
+    p "Start cleaning..."
+    p "Did you clean the entire room?"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'men', ADDITIVE
+    else
+      p "You should have cleaned brother"
+      p "You can do it"
+      clean
+    end
+  end
 
-***REMOVED***_closet
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***_closet
-  ***REMOVED***
-***REMOVED***
+  def clean_closet
+    p "Even the closet?... (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'men', ADDITIVE
+    else
+      p "Go clean closet..."
+      clean_closet
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def work
+    p "Start some work"
+    p "Do something mentally HARD..."
+    p "Did you get some productive work done? (e.g. 'I did x,y,z')"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    unless bool == "no"
+      log 'men', ADDITIVE
+    else
+      p "Get back to work until you can answer yes"
+      work
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-    p "Can be anything from Carlos Castaneda to Scientology"
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def read_spirit
+    p "Grab a spiritual text"
+    p "Did you read 1 page at minimum? (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'spir', ADDITIVE
+    else
+      p "Start reading at least 1 page or 1 article..."
+      read_spirit
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def meditate
+    p "You know what meditating is..."
+    p "Did you meditate for at least 1min? (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'emo', ADDITIVE
+    else
+      p "Start meditating brother... it only takes 1min"
+      meditate
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def read_nonfic
+    p "Read something goooood"
+    p "Did you read at least 1 page or article? (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'intel', ADDITIVE
+    else
+      p "Get back to work until you can answer yes"
+      read_nonfic
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def kung_fu_tai_chi
+    p "Prepare to practice Kung Fu or Tati Chi"
+    p "Did you practice Kung Fu or Tai Chi for at least 1min? (e.g. yes/no)"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'spir', ADDITIVE
+    else
+      p "Go practice it only takes 1 minute"
+      p "Don't forget to pull up a youtube vid if you need"
+      kftc
+    end
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  def journal
+    p "Prepare to start journaling"
+    p "Did you journal (digital or analog) for a few pages?"
+    bool = gets.strip
+    return reset if bool == 'skip'
+    if bool == "yes"
+      log 'emo', ADDITIVE
+    else
+      p "Go write something down"
+      p "It only takes 30seconds to write something down"
+      kftc
+    end
+  end
 
-***REMOVED***
+  private
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-      s***REMOVED***(@@cmd_to_action_mapper[choice])
-***REMOVED*** # else we know its a string
-      s***REMOVED***(choice)
-  ***REMOVED***
-***REMOVED***
+  def execute choice
+    scores if is_score?(choice)
+    if is_number?(choice) and cmd_exists?(choice)
+      choice = choice.to_i
+      send(@@cmd_to_action_mapper[choice])
+    else # else we know its a string
+      send(choice)
+    end
+  end
   
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def is_score? choice
+    choice == 'score' or choice == 'scores' or choice == 's'
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def log action, value
+    @logger.increase_score action, value
+    reset
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def is_number? choice
+    choice.to_i != 0
+  end
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def cmd_exists? choice
+    @@cmd_to_action_mapper.key? choice.to_i
+  end
 
-***REMOVED***
+  protected
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  def method_missing method_name, *args, &block
+    skipper
+  end
 
-***REMOVED***
+end

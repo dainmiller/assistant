@@ -8,26 +8,26 @@ describe Bot do
     it "starts a logger" do
       bot = Bot.new
       expect(bot.logger).to be_instance_of Logger
-  ***REMOVED***
+    end
     it "starts a command runner" do
       bot = Bot.run
       expect(bot.commands).to be_instance_of Commands
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
-***REMOVED***
+end
 
 describe Logger do
 
   before(:each) do
     @logger = Logger.new
-***REMOVED***
+  end
 
   describe "#.new" do
     it "should start an instance of the database" do
       expect(@logger.database).to be_instance_of Database
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
   describe "#.increase_score" do
     it "should add an additive int to the base score" do
@@ -47,52 +47,52 @@ describe Logger do
 
       # Assertion
       expect(new_score).to eq old_score+additive
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    end
+  end
+end
 
 describe Database do
 
   describe "setup" do
     it "should have a db index LOG_KEY specified" do
       expect(Database::LOG_KEY).to_not be_nil
-  ***REMOVED***
+    end
     it "should have a db file specifified" do
       expect(Database::LOG_FILE).to_not be_nil
-  ***REMOVED***
-***REMOVED***
+    end
+  end
 
   context "instance" do
 
     before(:each) do
       @database = Database.new
-  ***REMOVED***
+    end
 
     describe "#.client" do
       it "should start a YAML file wrapper (Psych)" do
         expect(@database.client).to be_instance_of Psych::Store
-    ***REMOVED***
+      end
       it "should return db file contents" do
         expect(@database.all).to eq YAML.load(File.read(Database::LOG_FILE))['log']
-    ***REMOVED***
-  ***REMOVED***
+      end
+    end
 
     describe "#.find" do
       it 'should return specific value for key' do
-    ***REMOVED***
-  ***REMOVED***
+      end
+    end
 
     describe "#.save" do
       it 'should allow you to save to db' do
-    ***REMOVED***
-  ***REMOVED***
+      end
+    end
 
     describe "#.all" do
       it 'should return all the data in the db' do
-    ***REMOVED***
-  ***REMOVED***
+      end
+    end
 
     describe "#.exists?" do
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    end
+  end
+end

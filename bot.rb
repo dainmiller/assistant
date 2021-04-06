@@ -6,12 +6,12 @@ require_relative 'config/commands'
 class Bot
   attr_reader :logger, :commands
 
-  def self.run ; new ; ***REMOVED***
+  def self.run ; new ; end
 
   def initialize
     @logger   = Logger.new
     @commands = Commands.new logger: @logger
-***REMOVED***
+  end
 
   def start_cli
     p "Good morning, Dain"
@@ -24,6 +24,6 @@ class Bot
     )
 
     @launcher.launch
-***REMOVED***
+  end
 
-***REMOVED***
+end

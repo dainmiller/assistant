@@ -1,6 +1,6 @@
 class ConfigTranslator
 
   def initialize
-***REMOVED***
+  end
 
-***REMOVED***
+end

@@ -7,11 +7,11 @@ class Launcher
     @logger   = logger
     @commands = commands
     @database = logger.database
-***REMOVED***
+  end
 
   def launch
     @commands.open if Validator.new(launcher: self).valid?
-***REMOVED***
+  end
 
-***REMOVED***
+end
 

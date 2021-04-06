@@ -3,16 +3,16 @@
 
 {{{ruby
   module SetA
-    class LearnToCodeCourse < InfoProduct ; ***REMOVED***
-    class WishlistApp < Product ; ***REMOVED***
-    class AllByPplApp < Product ; ***REMOVED***
-    class WebCrawler < Library ; ***REMOVED***
-    class CardMatching < Game ; ***REMOVED***
-    class LanguageForEducation < JsSuperSet ; ***REMOVED***
-    class SoftSkillsMath < TheoreticalResearch ; ***REMOVED***c
-    class GenEduContent < AppliedResearch ; ***REMOVED***
-  ***REMOVED***
-***REMOVED***}}
+    class LearnToCodeCourse < InfoProduct ; end
+    class WishlistApp < Product ; end
+    class AllByPplApp < Product ; end
+    class WebCrawler < Library ; end
+    class CardMatching < Game ; end
+    class LanguageForEducation < JsSuperSet ; end
+    class SoftSkillsMath < TheoreticalResearch ; endc
+    class GenEduContent < AppliedResearch ; end
+    end
+  }}}
 
 == Timeline (code representation) ==
 
@@ -22,15 +22,15 @@
     def timeline
     activated {
       set_a parallel=true
-  ***REMOVED***
+    }
   exit
     set_b parallel=true
-  ***REMOVED***
+    end
 
-  ***REMOVED***
-    def activate ; yield ; ***REMOVED***
+    private
+    def activate ; yield ; end
 
-  ***REMOVED***
+    protected
     def set_a parallel=nil
     {
 infoproduct: :learn_to_code_course,
@@ -51,8 +51,8 @@ infoproduct: :learn_to_code_course,
                :soft_skills_math(:theoretical),
              :generating_educational_content(:applied)
              ]
-  ***REMOVED***
-***REMOVED***
+    }
+  end
 
     def set_b parallel=nil
     {
@@ -63,8 +63,8 @@ tech: [
   :podcast_crawler_lib,
 :podcast_api
 ]
-  ***REMOVED***
-***REMOVED***
+    }
+  end
 
     def set_c parallel=nil
     {
@@ -74,10 +74,10 @@ products: [
 defi_products: [
   :decentralized_itunes
 ]
-  ***REMOVED***
-***REMOVED***
-  ***REMOVED***
-***REMOVED***}}
+    }
+  end
+    end
+  }}}
 
 Timeline text:
 1. Set A:
