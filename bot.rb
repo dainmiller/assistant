@@ -2,6 +2,7 @@ require_relative 'services/launcher'
 require_relative 'services/logger'
 require_relative 'db/database'
 require_relative 'config/commands'
+require_relative 'config/globals'
 
 class Bot
   attr_reader :logger, :commands
@@ -14,9 +15,9 @@ class Bot
   end
 
   def start_cli
-    p "Good morning, Dain"
-    p "Welcome to another day in your life"
-    p "Let's jump right into the day..."
+    p "Welcome back, #{Globals::NAME}"
+    p "Welcome to another moment in your life"
+    p "How are you #{Globals::MISSION_STATEMENT} today?"
 
     @launcher = Launcher.new(
       commands: @commands,

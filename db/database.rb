@@ -8,7 +8,7 @@ class Utility ; end
 class Database
 
   LOG_KEY   = 'log'
-  LOG_FILE  = '/Users/dain/Dropbox/notes-main/proj/a_set/1-product/ai-bot/db/data/my_database.yaml'
+  LOG_FILE  = 'db/data/my_database.yaml'
 
   def initialize
     @connection ||= YAML::Store.new(LOG_FILE)

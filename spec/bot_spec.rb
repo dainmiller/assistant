@@ -1,6 +1,6 @@
 require           'yaml'
 require_relative  '../bot.rb'
-require_relative  '../commands.rb'
+require_relative  '../config/commands.rb'
 
 describe Bot do
 
@@ -33,17 +33,17 @@ describe Logger do
     it "should add an additive int to the base score" do
       # Setup
       additive  = Commands::ADDITIVE
-      test_file = '_tmp/phys'
-      old_score = File.read("health/#{test_file}.txt").to_f
+      file      = '_tmp/phys'
+      old_score = File.read("config/health/#{file}.txt").to_f
 
       # Hotswap db file for test db
       # (constant assignment allowed in rspec only)
-      Database::LOG_FILE = 'spec/test_database.yml'
+      Database::LOG_FILE = 'spec/support/test_database.yml'
       @logger.database = Database.new
 
       # Call the real world w/stubs
-      @logger.increase_score test_file, additive
-      new_score = File.read('health/_tmp/phys.txt').to_f
+      @logger.increase_score file, additive
+      new_score = File.read("config/health/#{file}.txt").to_f
 
       # Assertion
       expect(new_score).to eq old_score+additive
@@ -69,8 +69,8 @@ describe Database do
     end
 
     describe "#.client" do
-      it "should start a YAML file wrapper (Psych)" do
-        expect(@database.client).to be_instance_of Psych::Store
+      xit "should start a YAML file wrapper (Psych)" do
+        expect(@database.all).to be_instance_of Psych::Store
       end
       it "should return db file contents" do
         expect(@database.all).to eq YAML.load(File.read(Database::LOG_FILE))['log']
