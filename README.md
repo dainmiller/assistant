@@ -8,19 +8,21 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 ## Bot CLI:
 <img width="482" alt="Screen Shot 2021-04-05 at 4 41 24 PM" src="https://user-images.githubusercontent.com/46613794/113624523-c3f15580-962d-11eb-8add-a02f57799ba6.png">
 
-## Decisions to Make
-
-- [ ] Will it have a web-app or will it stay CLI?
 
 ## To Do
 
 ### Priority Path
 
 - [ ] [[services/config_traslator]] More streamlined system for reading commands and config options from a file
+- [ ] Add support to set name
 
 ### Misc.
 
 - [ ] Add support for toggling the database contents from source control (`/config/health`) files, via gitignore
+
+## Decisions to Make
+
+- [ ] Will it have a web-app or will it stay CLI?
 
 ## How to Use
 
