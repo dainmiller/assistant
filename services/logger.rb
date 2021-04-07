@@ -9,12 +9,12 @@ class Logger < Decorator
     @database = Database.new
   end
 
-  def men   ; File.read("config/health/men.txt").strip   ; end
-  def emo   ; File.read("config/health/emo.txt").strip   ; end
-  def phys  ; File.read("config/health/phys.txt").strip  ; end
-  def spir  ; File.read("config/health/spir.txt").strip  ; end
-  def intel ; File.read("config/health/intel.txt").strip ; end
-  def files ; { phys: phys, men: men, emo: emo, intel: intel, spir: spir } ; end
+  def men   ; File.read("config/health/men.txt").strip                      ; end
+  def emo   ; File.read("config/health/emo.txt").strip                      ; end
+  def phys  ; File.read("config/health/phys.txt").strip                     ; end
+  def spir  ; File.read("config/health/spir.txt").strip                     ; end
+  def intel ; File.read("config/health/intel.txt").strip                    ; end
+  def files ; { phys: phys, men: men, emo: emo, intel: intel, spir: spir }  ; end
 
   def increase_score file, addition
     current = File.read("config/health/#{file}.txt").to_f
