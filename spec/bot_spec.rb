@@ -1,11 +1,12 @@
 require           'yaml'
 require_relative  '../bot.rb'
 require_relative  '../config/commands.rb'
+require_relative '../services/translator'
 
-describe CommandTest do
+describe Translator do
 
-  it 'should define methods' do
-    c = CommandTest.new
+  xit 'should define methods' do
+    c = Translator.new
     c.brush_teeth
   end
 
