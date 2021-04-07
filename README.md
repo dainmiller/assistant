@@ -1,15 +1,14 @@
 # Personal Assistant CLI Bot
 
-All of life is a game. It's time to realize it. Get your scores to 10.
+All of life is a game. It's time to realize it. Get your scores to 10. 
 
 ## Score Dashboard:
 > Example Dashboard:
-<img width="1620" alt="Screen Shot 2021-04-05 at 4 40 48 PM" src="https://user-images.githubusercontent.com/46613794/113624485-b936c080-962d-11eb-80b7-537cef16d323.png">
+![Screen Shot 2021-04-07 at 2 49 43 AM](https://user-images.githubusercontent.com/46613794/113823170-52f48f80-974c-11eb-9033-496a83088dca.png)
 
 ## Bot CLI:
 > Example CLI Interface: <br />
 <img width="482" alt="Screen Shot 2021-04-05 at 4 41 24 PM" src="https://user-images.githubusercontent.com/46613794/113624523-c3f15580-962d-11eb-8add-a02f57799ba6.png">
-
 
 ## To Do
 
@@ -44,3 +43,17 @@ Now the bot will start talking to you and asking questions
 1. Edit the `config/data/commands.yaml` class to include the habits you're trying to build
 
 2. Set the `config/health/*` files to include your current scores out of 10
+
+## Folder Structure Explained
+
+```
+  /analysis/* - Using data science tools to analyze your life
+  /bin/*      - Where we launch the app from
+  /config/*   - Config files
+  /db/*       - Database related files
+  /docs/*     - Docs
+  /server/*   - Server sinatra files
+    /views/*    - HTML for dashboard
+  /services/* - Service objects
+  /spec/*     - Tests 
+```
