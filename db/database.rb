@@ -1,5 +1,6 @@
 require 'yaml/store'
 require 'date'
+require 'pry'
 
 class Decorator ; end
 class Utility ; end
@@ -44,9 +45,11 @@ class Database
   protected
 
   def get_today
-    begin @connection[LOG_KEY][today]
-    rescue
+    if @connection[LOG_KEY].key? today
+      return @connection[LOG_KEY][today]
+    else
       @connection[LOG_KEY][today] = {}
+      return  @connection[LOG_KEY][today]
     end
   end
 
