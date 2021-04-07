@@ -25,6 +25,7 @@ class Commands
     10 => :journal,
     11 => :brush_teeth,
     12 => :wash_face,
+    13 => :push_ups,
   }
 
   def initialize(logger:)
@@ -44,7 +45,7 @@ class Commands
   def scores
     @logger.files.each do |file, score|
       p "Score: #{score} for area of life - #{file}"
-    end.then { sleep(2) and reset }
+    end.then { sleep(2) and reset } # love the `then` ❤️
   end
 
   def skipper
@@ -57,15 +58,53 @@ class Commands
     execute gets.strip
   end
 
+  # NOTE: ALL of these methods are being converted to `config/data/commands.yaml`
+  # all this code will be traded in for the simple class `services/Translator`
+  def walk
+    p "Start walking..."
+    p "How long did you walk in minutes (e.g. 80)?"
+    mins = gets.strip.to_i
+    return reset if mins == 0
+    if not mins.to_s == 0
+      if mins > 100
+        log 'config/health/phys', 0.15
+      elsif mins < 100 and mins > 60
+        log 'config/health/phys', 0.1
+      else
+        log 'config/health/phys', 0.05
+      end
+      log 'config/indiv/walk', mins
+    end
+    reset
+  end
+
+  def push_ups
+    p "Start your pushups..."
+    p "How many pushups did you do?"
+    push_ups = gets.strip.to_i
+    if push_ups > 0
+      if push_ups > 100
+        log 'config/health/phys', 0.15
+      elsif push_ups < 100 and push_ups > 60
+        log 'config/health/phys', 0.1
+      else
+        log 'config/health/phys', 0.05
+      end
+      log 'config/indiv/push_ups', push_ups
+    end
+    reset
+  end
+
   def brush_teeth
     p "Did you brush your teeth?"
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == 'yes'
-      log 'phys', ADDITIVE
+      log 'config/health/phys', ADDITIVE
     else
       brush_teeth
     end
+    reset
   end
 
   def wash_face
@@ -73,10 +112,11 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == 'yes'
-      log 'phys', ADDITIVE
+      log 'config/health/phys', ADDITIVE
     else
       wash_face
     end
+    reset
   end
 
   def water
@@ -84,28 +124,15 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'phys', ADDITIVE
+      log 'config/health/phys', ADDITIVE
     else
       p "Go get some water before anything else"
       p "This will reduce any headaches brother"
       water
     end
-  end
-
-  def walk
-    p "Start walking..."
-    p "How long did you walk in minutes (e.g. 80)?"
-    mins = gets.strip.to_i
-    return reset if mins == 0
-    if mins > 100
-      log 'phys', 0.15
-    elsif mins < 100 and mins > 60
-      log 'phys', 0.1
-    else
-      log 'phys', 0.05
-    end
     reset
   end
+
 
   def clean
     p "Start cleaning..."
@@ -119,6 +146,7 @@ class Commands
       p "You can do it"
       clean
     end
+    reset
   end
 
   def clean_closet
@@ -126,11 +154,12 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'men', ADDITIVE
+      log 'config/health/men', ADDITIVE
     else
       p "Go clean closet..."
       clean_closet
     end
+    reset
   end
 
   def work
@@ -140,11 +169,12 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     unless bool == "no"
-      log 'men', ADDITIVE
+      log 'config/health/men', ADDITIVE
     else
       p "Get back to work until you can answer yes"
       work
     end
+    reset
   end
 
   def read_spirit
@@ -153,11 +183,12 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'spir', ADDITIVE
+      log 'config/health/spir', ADDITIVE
     else
       p "Start reading at least 1 page or 1 article..."
       read_spirit
     end
+    reset
   end
 
   def meditate
@@ -166,11 +197,12 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'emo', ADDITIVE
+      log 'config/health/emo', ADDITIVE
     else
       p "Start meditating brother... it only takes 1min"
       meditate
     end
+    reset
   end
 
   def read_nonfic
@@ -179,11 +211,12 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'intel', ADDITIVE
+      log 'config/health/intel', ADDITIVE
     else
       p "Get back to work until you can answer yes"
       read_nonfic
     end
+    reset
   end
 
   def kung_fu_tai_chi
@@ -192,12 +225,13 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'spir', ADDITIVE
+      log 'config/health/spir', ADDITIVE
     else
       p "Go practice it only takes 1 minute"
       p "Don't forget to pull up a youtube vid if you need"
       kftc
     end
+    reset
   end
 
   def journal
@@ -206,12 +240,13 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'emo', ADDITIVE
+      log 'config/health/emo', ADDITIVE
     else
       p "Go write something down"
       p "It only takes 30seconds to write something down"
       kftc
     end
+    reset
   end
 
   private
@@ -232,7 +267,6 @@ class Commands
 
   def log action, value
     @logger.increase_score action, value
-    reset
   end
 
   def is_number? choice

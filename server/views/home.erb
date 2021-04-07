@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Personal Dashboard</title>
+    <title>Personal Dev Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+      .pull-right { float: right; }
+      body {
+        font-family: 'Arial';
+        font-weight: 100;
+        font-size: 1.0em;
+      }
       .yo {
         background: #eee;
         margin: 10px;
@@ -11,6 +17,7 @@
         float: left; 
         width: 300px;
       }
+      .not { background: red !important; color: white; }
       .database-rendering {
         background: #eee;
         border-top-right-radius: 50px;
@@ -24,17 +31,23 @@
         float: left; 
         width: 200px;
       }
+      h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
-    <u><center><h1>Dashboard | My Current Scores</h1></center></u>
+    <u><center><h1><%= "#{@name}'s Current Scores" %></h1></center></u>
     <center>
 
       <div style="width: 1300px;">
+        <span class="pull-right"><span style="background: red; color: white;padding: 5px; border-radius: 5px;">RED</span> = Not Implemented
+          </span>
 
-        <div style="margin-top:-50px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
-        <h2>Personal</h2>
+        <h2>Cumulative Scores</h2>
 
         <div class="yo">
           <h2>Physical Health Score:</h2>
@@ -62,15 +75,46 @@
         </div>
 
         <div style="clear: both; overflow: hidden;"></div>
-
-        <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        <div style="margin-top: -40px;width: 250px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
-        <center><h2>Impact</h2></center>
+        <center><h2>Individual Tracking</h2></center>
 
         <div class="yo">
+          <h2>Walk Length (mins):</h2>
+          <h2><%= @walk %></h2>
+        </div>
+        <div class="yo">
+          <h2>Push-Ups (the number):</h2>
+          <h2><%= @pu %></h2>
+        </div>
+        <div class="yo not">
+          <h2>Deep-Work (hours):</h2>
+          <h2>4.5</h2>
+        </div>
+
+        <div style="clear: both; overflow: hidden;"></div>
+        <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <center><h2>Skill Development</h2></center>
+
+        <div class="yo not">
           <h2>Skill Score [code]:</h2>
           <h2>4.1</h2>
         </div>
+        <div class="yo not">
+          <h2>Skill Score [write]:</h2>
+          <h2>4.1</h2>
+        </div>
+        <div class="yo not">
+          <h2>Deep Work Score:</h2>
+          <h2>3.8</h2>
+        </div>
+
+        <div style="clear: both; overflow: hidden;"></div>
+        <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <center><h2>Business</h2></center>
+
         <div class="yo">
           <h2>Sales Score:</h2>
           <h2>0.2</h2>
@@ -82,10 +126,6 @@
         <div class="yo">
           <h2>Content Marketing Score:</h2>
           <h2>0.83</h2>
-        </div>
-        <div class="yo">
-          <h2>Skill Score [write]:</h2>
-          <h2>4.1</h2>
         </div>
         <div class="yo">
           <h2>Product Score:</h2>

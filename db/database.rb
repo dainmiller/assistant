@@ -21,6 +21,7 @@ class Database
   end
 
   def save key, value
+    key = get_key_from key
     insert do |row|
       row[key] = value
     end
@@ -77,4 +78,7 @@ class Database
     File.exist?(LOG_FILE)
   end
 
+  def get_key_from key
+    key.split('/')[2] if key.split('/').count > 1
+  end
 end

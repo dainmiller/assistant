@@ -17,11 +17,11 @@ class Logger < Decorator
   def files ; { phys: phys, men: men, emo: emo, intel: intel, spir: spir }  ; end
 
   def increase_score file, addition
-    current = File.read("config/health/#{file}.txt").to_f
+    current = File.read("#{file}.txt").to_f
     p "------------------------------------------------------"
     p "You went from a '#{file} health' score of: #{current}"
     p "To the increased score..#{current+addition}"
-    File.write("config/health/#{file}.txt", current+addition)
+    File.write("#{file}.txt", current+addition)
     @database.save(file, addition)
   end
 end
