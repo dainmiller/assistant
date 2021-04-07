@@ -11,13 +11,12 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 ## Bot CLI:
 > Example CLI Interface: <br />
 ![Screen Shot 2021-04-07 at 6 28 54 PM](https://user-images.githubusercontent.com/46613794/113942639-22a20500-97cf-11eb-9439-e6dee5f1f03b.png)
-![Screen Shot 2021-04-07 at 6 35 52 PM](https://user-images.githubusercontent.com/46613794/113943176-21250c80-97d0-11eb-9320-a18f60942c45.png)
 
 
 ## Sample Analysis
 The whole point of doing this is to be able to analyze your data - e.g.
-
 ![Screen Shot 2021-04-07 at 6 34 43 PM](https://user-images.githubusercontent.com/46613794/113943130-06eb2e80-97d0-11eb-9def-505fd9c9dea8.png)
+![Screen Shot 2021-04-07 at 6 35 52 PM](https://user-images.githubusercontent.com/46613794/113943176-21250c80-97d0-11eb-9320-a18f60942c45.png)
 
 ## To Do
 
