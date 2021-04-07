@@ -19,8 +19,7 @@ The whole point of doing this is to be able to analyze your data - e.g.
 
 ## To Do
 
-* For open todos see our [project status board](https://githu![Uploading Screen Shot 2021-04-07 at 6.32.42 PM.png…]()
-b.com/dainmiller/assistant/projects/3)
+* For open todos see our [project status board](https://github.com/dainmiller/assistant/projects/3)
 
 ## How to Use
 
