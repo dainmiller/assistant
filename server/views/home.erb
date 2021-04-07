@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .yo {
+        background: #eee;
+        margin: 10px;
+        border-radius: 10px;
+        float: left; 
+        width: 300px;
+      }
+      .database-rendering {
+        background: #eee;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        border: 1px #aaa solid;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 1300px;
+      }
+      .day { 
+        float: left; 
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <u><center><h1>Dashboard | My Current Scores</h1></center></u>
+    <center>
+
+      <div style="width: 1300px;">
+
+        <div style="margin-top:-50px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <h2>Personal</h2>
+
+        <div class="yo">
+          <h2>Physical Health Score:</h2>
+          <h2><%= @phys %></h2>
+        </div>
+        <div class="yo">
+          <h2>Mental Health Score:</h2>
+          <h2><%= @men %></h2>
+        </div>
+        <div class="yo">
+          <h2>Spiritual Health Score:</h2>
+          <h2><%= @spir %></h2>
+        </div>
+        <div class="yo">
+          <h2>Emotonial Health Score:</h2>
+          <h2><%= @emo %></h2>
+        </div>
+        <div class="yo">
+          <h2>Intelligence Score:</h2>
+          <h2><%= @intel %></h2>
+        </div>
+        <div class="yo">
+          <h2>Financial Score:</h2>
+          <h2><%= @fin %></h2>
+        </div>
+
+        <div style="clear: both; overflow: hidden;"></div>
+
+        <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <center><h2>Impact</h2></center>
+
+        <div class="yo">
+          <h2>Skill Development Score [programming]:</h2>
+          <h2>4.1</h2>
+        </div>
+        <div class="yo">
+          <h2>Sales Score:</h2>
+          <h2>0.2</h2>
+        </div>
+        <div class="yo">
+          <h2>Social Marketing Score:</h2>
+          <h2>2.1</h2>
+        </div>
+        <div class="yo">
+          <h2>Content Marketing Score:</h2>
+          <h2>0.83</h2>
+        </div>
+        <div class="yo">
+          <h2>Product Score:</h2>
+          <h2>1.98</h2>
+        </div>
+        <div class="yo">
+          <h2>Deep Work Score:</h2>
+          <h2>3.8</h2>
+        </div>
+        <div class="yo">
+          <h2>Investment Score:</h2>
+          <h2><%= @fin %></h2>
+        </div>
+      </div>
+
+      <div style="clear: both; overflow: hidden;"></div>
+
+      <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+      </div>
+      <h2 style="width: 200px;z-index: 1;">
+        Full Event Log
+      </h2>
+
+      <div class="database-rendering">
+        <% @db.each do |date, obj| %>
+          <div class="day">
+            <h3><%= date %></h3>
+            <% obj.each do |timestamp, sc| %>
+              <%= timestamp.split(' ')[1] %>
+              <% sc.each do |action,score| %>
+                <b><%= action %></b>: 
+                <%= score %>
+              <% end %>
+              <br />
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </center>
+  </body>
+</html>
+
