@@ -4,7 +4,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ## Score Dashboard:
 > Example Dashboard:
-<img width="1620" alt="Screen Shot 2021-04-05 at 4 40 48 PM" src="https://user-images.githubusercontent.com/46613794/113624485-b936c080-962d-11eb-80b7-537cef16d323.png">
+![Screen Shot 2021-04-07 at 2 49 43 AM](https://user-images.githubusercontent.com/46613794/113823170-52f48f80-974c-11eb-9033-496a83088dca.png)
 
 ## Bot CLI:
 > Example CLI Interface: <br />
