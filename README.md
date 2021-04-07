@@ -6,6 +6,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 > Example Dashboard:
 
 ![Screen Shot 2021-04-07 at 6 21 28 PM](https://user-images.githubusercontent.com/46613794/113942004-22553a00-97ce-11eb-8693-70beb979448a.png)
+![Screen Shot 2021-04-07 at 6 32 42 PM](https://user-images.githubusercontent.com/46613794/113942925-b07df000-97cf-11eb-99b8-bbc92776456a.png)
 
 
 ## Bot CLI:
@@ -15,7 +16,8 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ## To Do
 
-* For open todos see our [project status board](https://github.com/dainmiller/assistant/projects/3)
+* For open todos see our [project status board](https://githu![Uploading Screen Shot 2021-04-07 at 6.32.42 PM.png…]()
+b.com/dainmiller/assistant/projects/3)
 
 ## How to Use
 
