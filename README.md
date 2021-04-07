@@ -13,6 +13,11 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ![Screen Shot 2021-04-07 at 6 28 54 PM](https://user-images.githubusercontent.com/46613794/113942639-22a20500-97cf-11eb-9439-e6dee5f1f03b.png)
 
+## Sample Analysis
+The whole point of doing this is to be able to analyze your data - e.g.
+![Screen Shot 2021-04-07 at 6 34 49 PM](https://user-images.githubusercontent.com/46613794/113943135-09e61f00-97d0-11eb-8bb3-ae0cdea66cca.png)
+![Screen Shot 2021-04-07 at 6 34 43 PM](https://user-images.githubusercontent.com/46613794/113943130-06eb2e80-97d0-11eb-9def-505fd9c9dea8.png)
+
 ## To Do
 
 * For open todos see our [project status board](https://githu![Uploading Screen Shot 2021-04-07 at 6.32.42 PM.png…]()
