@@ -12,16 +12,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ## To Do
 
-##### Priority Path
-
-- [ ] More streamlined system for reading commands and config options from a file [[services/config_traslator]]
-- [ ] Add support for more business/work activities - programming, sales, etc
-- [ ] Add help [man page] that resembles a great CLI tool (e.g. https://twitter.com/GithubProjects/status/1378759017783128064/photo/1)
-- [X] Add support to set name
-
-##### Misc.
-
-- [ ] Add support for toggling the database contents from source control (`/config/health`) files, via gitignore
+* For open todos see our [project status board](https://github.com/dainmiller/assistant/projects/3?add_cards_query=is%3Aopen)
 
 ##### Decisions to Make
 
