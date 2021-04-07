@@ -12,11 +12,7 @@ All of life is a game. It's time to realize it. Get your scores to 10.
 
 ## To Do
 
-* For open todos see our [project status board](https://github.com/dainmiller/assistant/projects/3?add_cards_query=is%3Aopen)
-
-##### Decisions to Make
-
-- [ ] Will it have a web-app or will it stay CLI?
+* For open todos see our [project status board](https://github.com/dainmiller/assistant/projects/3)
 
 ## How to Use
 
