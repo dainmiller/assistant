@@ -2,7 +2,9 @@
 #
 # TODO: Refactor the F out of this!
 # TODO: Move this to services/
-# NOTE: Everytime you touch the file, make it better  
+# NOTE: 3/30 | Everytime you touch the file, make it better  
+# NOTE: 4/05 | [update] refactored but still need to improve 
+#              object lookup patterns
 class Translator
 
   def initialize

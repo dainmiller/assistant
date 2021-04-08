@@ -19,7 +19,7 @@ class Logger < Decorator
   def increase_score file, addition
     current = File.read("#{file}.txt").to_f
     p "------------------------------------------------------"
-    p "You went from a '#{file} health' score of: #{current}"
+    p "You went from a '#{file}' score of: #{current}"
     p "To the increased score..#{current+addition}"
     File.write("#{file}.txt", current+addition)
     @database.save(file, addition)

@@ -1,6 +1,13 @@
 # Personal Assistant CLI Bot
 
-All of life is a game. It's time to realize it. Get your scores to 10. 
+PA for the Game of Life. 
+
+Set the areas you want to improve (w/templates), and then get a daily, live, interactive Personal Assistant - that you work with through the Command Line.
+
+NOTE: The internal object API is not focused on being the 'most clever', 'most clear', etc - rather focused on fun.
+
+NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we run everything on that db and expect it to be local to the computer u run the bot on. 
+      If you want to, just: `vi .gitignore' then `db/data/my_database.yaml
 
 ## Score Dashboard:
 > Example Dashboard:
