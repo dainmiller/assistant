@@ -11,11 +11,18 @@ NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we
 
 ## Score Dashboard:
 > Example Dashboard:
-![Screen Shot 2021-04-07 at 2 49 43 AM](https://user-images.githubusercontent.com/46613794/113823170-52f48f80-974c-11eb-9033-496a83088dca.png)
+![Screen Shot 2021-04-07 at 6 21 28 PM](https://user-images.githubusercontent.com/46613794/113942004-22553a00-97ce-11eb-8693-70beb979448a.png)
+![Screen Shot 2021-04-07 at 6 33 44 PM](https://user-images.githubusercontent.com/46613794/113943004-cdb2be80-97cf-11eb-976b-8ee081ac5b78.png)
 
 ## Bot CLI:
 > Example CLI Interface: <br />
-<img width="482" alt="Screen Shot 2021-04-05 at 4 41 24 PM" src="https://user-images.githubusercontent.com/46613794/113624523-c3f15580-962d-11eb-8add-a02f57799ba6.png">
+![Screen Shot 2021-04-07 at 6 28 54 PM](https://user-images.githubusercontent.com/46613794/113942639-22a20500-97cf-11eb-9439-e6dee5f1f03b.png)
+
+
+## Sample Analysis
+The whole point of doing this is to be able to analyze your data - e.g.
+> ![Screen Shot 2021-04-07 at 6 34 43 PM](https://user-images.githubusercontent.com/46613794/113943130-06eb2e80-97d0-11eb-9def-505fd9c9dea8.png)
+> ![Screen Shot 2021-04-07 at 6 35 52 PM](https://user-images.githubusercontent.com/46613794/113943176-21250c80-97d0-11eb-9320-a18f60942c45.png)
 
 ## To Do
 
