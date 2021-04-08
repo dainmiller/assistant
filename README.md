@@ -7,7 +7,7 @@ Set the areas you want to improve (w/templates), and then get a daily, live, int
 NOTE: The internal object API is not focused on being the 'most clever', 'most clear', etc - rather focused on fun.
 
 NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we run everything on that db and expect it to be local to the computer u run the bot on. 
-      If you want to, just: `vi .gitignore' then `db/data/my_database.yaml
+      If you want to, just: `vi .gitignore` then `db/data/my_database.yaml`
 
 ## Score Dashboard:
 > Example Dashboard:
