@@ -45,6 +45,10 @@
         <span class="pull-right"><span style="background: red; color: white;padding: 5px; border-radius: 5px;">RED</span> = Not Implemented
           </span>
 
+        <span style="float: left;"><span style="background: blue; color: white;padding: 7px; border-radius: 7px;cursor: hand; cursor: pointer;">
+           <a href="/reports" style="color: white; text-decoration: none">📊 Report & Analytics</a></span>
+          </span>
+
         <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
         <h2>Cumulative Scores</h2>
@@ -87,9 +91,9 @@
           <h2>Push-Ups (the number):</h2>
           <h2><%= @pu %></h2>
         </div>
-        <div class="yo not">
+        <div class="yo">
           <h2>Deep-Work (hours):</h2>
-          <h2>4.5</h2>
+          <h2><%= @deep %></h2>
         </div>
 
         <div style="clear: both; overflow: hidden;"></div>

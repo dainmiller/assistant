@@ -6,7 +6,7 @@
   - name: "Brush Teeth"
   - prompt: "Did you brush your teeth?"
   - when_complete_add_by: 0.01
-  - encouragement: "Just go do it man! Only do 1 brush if you need - just do it!"
+  - encouragement: "Just go give it a brush!"
 - walk:
   - cmd: walk
   - file: phys
@@ -14,4 +14,4 @@
   - name: "Walk"
   - prompt: "Did you walk?"
   - when_complete_add_by: 0.01
-  - encouragement: "Just go do it brother, remember how good you'll feel?"
+  - encouragement: "You got this!"

@@ -14,10 +14,6 @@ class Translator
 
   def translate_config_to_methods
     @cmds = []
-    build
-  end
-
-  def build
     build_methods_from commands_config_file
   end
 
@@ -37,6 +33,7 @@ class Translator
     obj.keys.flatten.first
   end
 
+  # TODO: Remove the mystery guest strings here
   def internals(obj:)
     p prompt(obj)
     bool = gets.strip
@@ -87,7 +84,7 @@ class Translator
   def find_method obj, user_selection
     return obj.find { |e|
       e[0].to_i == "#{user_selection}".to_i
-    }[1]
+    }.first
   end
 
   def call_method meth
@@ -101,8 +98,6 @@ class Translator
   def file attrs
     attrs[1].values.first
   end
-
-  protected
 
   def success
     true

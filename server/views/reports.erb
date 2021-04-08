@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Dev Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .pull-right { float: right; }
+      body {
+        font-family: 'Arial';
+        font-weight: 100;
+        font-size: 1.0em;
+      }
+      .yo {
+        background: #eee;
+        margin: 10px;
+        border-radius: 10px;
+        float: left; 
+        width: 300px;
+      }
+      .not { background: red !important; color: white; }
+      .database-rendering {
+        background: #eee;
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+        border: 1px #aaa solid;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 1300px;
+      }
+      .day { 
+        float: left; 
+        width: 200px;
+      }
+      h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+        <u><center><h1><%= "#{@name}'s Reports on Live Data" %></h1></center></u>
+    <center>
+
+      <div style="width: 1300px;">
+
+        <span style="float: left;"><span style="background: blue; color: white;padding: 7px; border-radius: 7px;cursor: hand; cursor: pointer;">
+           <a href="/" style="color: white; text-decoration: none">🎛 <= back to Dashboard</a></span>
+          </span>
+
+        <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <h2>Cumulative Habits</h2>
+
+        <div class="report">
+           <h1> <%= @title %> </h1>
+          <%= column_chart(@ddata) %>
+        </div>
+        
+        <div style="clear: both; overflow: hidden;"></div>
+        
+        <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+        </div>
+        <h2>Comparing Habits</h2>
+
+        <div class="yo">
+          <h2>Physical Health Score:</h2>
+          <h2><%= @phys %></h2>
+        </div>
+    </div>
+    </center>
+  </body>
+  </html>

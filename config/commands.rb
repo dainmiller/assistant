@@ -26,6 +26,7 @@ class Commands
     11 => :brush_teeth,
     12 => :wash_face,
     13 => :push_ups,
+    14 => :deep_work,
   }
 
   def initialize(logger:)
@@ -56,6 +57,25 @@ class Commands
       p "#{cmd}. #{action}"
     end
     execute gets.strip
+  end
+
+  def deep_work
+    p "Start working deeply..."
+    p "How many hours did you work deeply?"
+    hours = gets.strip.to_i
+    if not hours.to_s == 0
+      if hours > 1
+        log 'config/health/men', 0.15
+      elsif hours < 100 and hours > 3
+        p "Be careful you aren't working and ignoring the world for too long."
+        p "Balance..."
+        log 'config/health/men', 0.1
+      else
+        log 'config/health/men', 0.05
+      end
+      log 'config/indiv/deep_work', hours
+    end
+    reset
   end
 
   # NOTE: ALL of these methods are being converted to `config/data/commands.yaml`

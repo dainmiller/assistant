@@ -43,7 +43,7 @@ class Validator
   def no_action_error action
     throw_error(NoMethodError, 
       "Commands.#{action}", 
-      'You forgot to add the method'
+      'You forgot to add the method for that habit you added to the CMD_ACTION_MAPPER.'
     )
   end
 
