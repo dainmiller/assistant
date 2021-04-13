@@ -12,22 +12,30 @@ class Commands
 
   attr_reader :actions
 
-  @@cmd_to_action_mapper = {
-    1  => :walk,
-    2  => :water,
-    3  => :clean,
-    4  => :clean_closet,
-    5  => :work,
-    6  => :read_spirit,
-    7  => :meditate,
-    8  => :kung_fu_tai_chi,
-    9  => :read_nonfic,
-    10 => :journal,
-    11 => :brush_teeth,
-    12 => :wash_face,
-    13 => :push_ups,
-    14 => :deep_work,
-  }
+  @@commands = [
+    :walk,
+    :water,
+    :clean,
+    :clean_closet,
+    :work,
+    :read_spirit,
+    :meditate,
+    :kung_fu_tai_chi,
+    :read_nonfic,
+    :journal,
+    :brush_teeth,
+    :wash_face,
+    :push_ups,
+    :deep_work,
+    :sleep,
+    :episodes,
+    :videos,
+    :features,
+    :articles,
+    :chapters,
+    :revenue,
+    :collected,
+  ]
 
   def initialize(logger:)
     @logger = logger
@@ -40,7 +48,7 @@ class Commands
   def reset ; skipper ; end
 
   def actions
-    @@cmd_to_action_mapper.values
+    @@commands
   end
 
   def scores
@@ -53,10 +61,108 @@ class Commands
     p "------------------------------------------------------"
     p "Pick what you want to do next (pick by name or number)"
     p "(note -- you can type `score` to get your score anytime)"
-    @@cmd_to_action_mapper.each do |cmd, action|
-      p "#{cmd}. #{action}"
+    @@commands.each_with_index do |action, cmdNumber|
+      p "#{cmdNumber}. #{action}"
     end
     execute gets.strip
+  end
+
+  def collected
+    p "How much cash did you collect?"
+    cash = gets.strip.to_f
+    if cash
+      if cash > 0
+        log 'config/health/fin', 0.1
+      end
+      log 'config/indiv/cash', cash
+    end
+    reset
+  end
+
+  def revenue
+    p "How much revenue did you close?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/content_marketing', 0.1
+      end
+      log 'config/indiv/rev', count
+    end
+    reset
+  end
+
+  def episodes
+    p "How many episodes did you publish?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/content_marketing', 0.1
+      end
+      log 'config/indiv/eps', count
+    end
+    reset
+  end
+
+  def videos
+    p "How many videos did you publish?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/content_marketing', 0.1
+      end
+      log 'config/indiv/vids', count
+    end
+    reset
+  end
+
+  def features
+    p "How many Features did you develop?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/product', 0.1
+      end
+      log 'config/indiv/feats', count
+    end
+    reset
+  end
+
+  def articles
+    p "How many Articles did you publish?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/content_marketing', 0.1
+      end
+      log 'config/indiv/artics', count
+    end
+    reset
+  end
+
+  def chapters
+    p "How many Chapters did you write?"
+    count = gets.strip.to_f
+    if count
+      if count > 0
+        log 'config/biz/product', 0.1
+      end
+      log 'config/indiv/chaps', count
+    end
+    reset
+  end
+
+  def sleep
+    p "How long did you sleep (in hours.minutes)?"
+    hours = gets.strip.to_f
+    if hours
+      if hours > 5 and hours < 7
+        log 'config/health/phys', 0.1
+      elsif hours >= 7
+        log 'config/health/phys', 0.15
+      end
+      log 'config/indiv/sleep', hours
+    end
+    reset
   end
 
   def deep_work
@@ -78,8 +184,6 @@ class Commands
     reset
   end
 
-  # NOTE: ALL of these methods are being converted to `config/data/commands.yaml`
-  # all this code will be traded in for the simple class `services/Translator`
   def walk
     p "Start walking..."
     p "How long did you walk in minutes (e.g. 80)?"
@@ -160,7 +264,7 @@ class Commands
     bool = gets.strip
     return reset if bool == 'skip'
     if bool == "yes"
-      log 'men', ADDITIVE
+      log 'config/health/men', ADDITIVE
     else
       p "You should have cleaned brother"
       p "You can do it"
@@ -272,10 +376,9 @@ class Commands
   private
 
   def execute choice
-    scores if is_score?(choice)
-    if is_number?(choice) and cmd_exists?(choice)
+    if cmd_exists?(choice)
       choice = choice.to_i
-      send(@@cmd_to_action_mapper[choice])
+      send(@@commands[choice])
     else # else we know its a string
       send(choice)
     end
@@ -294,7 +397,9 @@ class Commands
   end
 
   def cmd_exists? choice
-    @@cmd_to_action_mapper.key? choice.to_i
+    v = @@commands[choice.to_i]
+    return false if v.nil?
+    true
   end
 
   protected

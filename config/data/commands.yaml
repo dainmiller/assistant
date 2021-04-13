@@ -1,12 +1,4 @@
 ---
-- brush_teeth: 
-  - cmd: brush_teeth
-  - file: phys
-  - type: bool
-  - name: "Brush Teeth"
-  - prompt: "Did you brush your teeth?"
-  - when_complete_add_by: 0.01
-  - encouragement: "Just go give it a brush!"
 - walk:
   - cmd: walk
   - file: phys
@@ -15,3 +7,35 @@
   - prompt: "Did you walk?"
   - when_complete_add_by: 0.01
   - encouragement: "You got this!"
+- water: 
+  - cmd: water
+  - file: phys
+  - type: bool
+  - name: "Water"
+  - prompt: "Did you drink some water?"
+  - when_complete_add_by: 0.01
+  - encouragement: "Go get a bottle!"
+- clean: 
+  - cmd: clean
+  - file: men
+  - type: bool
+  - name: "Clean"
+  - prompt: "Did you clean the entire room?"
+  - when_complete_add_by: 0.01
+  - encouragement: "Go start, it's easy!"
+- clean_closet:
+  - cmd: clean_closet
+  - file: men
+  - type: bool
+  - name: "Clean Closet"
+  - prompt: "Did you also clean the closet?"
+  - when_complete_add_by: 0.01
+  - encouragement: "Do it really quick"
+- deep_work: 
+  - cmd: deep_work
+  - file: men
+  - type: bool
+  - name: "Deep Work"
+  - prompt: "Did you do 1 hour of deep work?"
+  - when_complete_add_by: 0.01
+  - encouragement: "Go get a bottle!"

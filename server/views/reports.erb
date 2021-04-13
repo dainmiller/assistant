@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://www.google.com/jsapi"></script>
+
+
     <title>Personal Dev Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
     <style>
       .pull-right { float: right; }
       body {
@@ -38,26 +43,69 @@
     </style>
   </head>
   <body>
-        <u><center><h1><%= "#{@name}'s Reports on Live Data" %></h1></center></u>
+
+
+
+
+    <u><center><h1><%= "#{@name}'s Reports on Live Data" %></h1></center></u>
     <center>
 
       <div style="width: 1300px;">
 
         <span style="float: left;"><span style="background: blue; color: white;padding: 7px; border-radius: 7px;cursor: hand; cursor: pointer;">
-           <a href="/" style="color: white; text-decoration: none">🎛 <= back to Dashboard</a></span>
-          </span>
+            <a href="/" style="color: white; text-decoration: none">🎛 <= back to Dashboard</a></span>
+        </span>
 
         <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
-        <h2>Cumulative Habits</h2>
 
         <div class="report">
-           <h1> <%= @title %> </h1>
-          <%= column_chart(@ddata) %>
+          <h2>Cumulative Habits</h2>
+          <%= line_chart @ddata %>
+          <canvas id="myChart" width="400" height="400"></canvas>
         </div>
-        
+
+        <script>
+          var e = <%= @ddata.keys %>
+                    var ctx = document.getElementById('myChart');
+                    var myChart = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                            labels: e,
+                                            datasets: [{
+                                                        label: '# of Votes',
+                                                        data: <%= @ddata.values %>,
+                                                        backgroundColor: [
+                                                                    'rgba(255, 99, 132, 0.2)',
+                                                                    'rgba(54, 162, 235, 0.2)',
+                                                                    'rgba(255, 206, 86, 0.2)',
+                                                                    'rgba(75, 192, 192, 0.2)',
+                                                                    'rgba(153, 102, 255, 0.2)',
+                                                                    'rgba(255, 159, 64, 0.2)'
+                                                                  ],
+                                                        borderColor: [
+                                                                    'rgba(255, 99, 132, 1)',
+                                                                    'rgba(54, 162, 235, 1)',
+                                                                    'rgba(255, 206, 86, 1)',
+                                                                    'rgba(75, 192, 192, 1)',
+                                                                    'rgba(153, 102, 255, 1)',
+                                                                    'rgba(255, 159, 64, 1)'
+                                                                  ],
+                                                        borderWidth: 1
+                                                      }]
+                                          },
+                                options: {
+                                            scales: {
+                                                        y: {
+                                                                    beginAtZero: true
+                                                                  }
+                                                      }
+                                          }
+                              });
+        </script>
+
         <div style="clear: both; overflow: hidden;"></div>
-        
+
         <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
         <h2>Comparing Habits</h2>
@@ -66,7 +114,7 @@
           <h2>Physical Health Score:</h2>
           <h2><%= @phys %></h2>
         </div>
-    </div>
+      </div>
     </center>
   </body>
-  </html>
+</html>

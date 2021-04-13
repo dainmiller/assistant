@@ -29,7 +29,7 @@
       }
       .day { 
         float: left; 
-        width: 200px;
+        width: 250px;
       }
       h1 {
         text-transform: uppercase;
@@ -84,46 +84,64 @@
         <center><h2>Individual Tracking</h2></center>
 
         <div class="yo">
-          <h2>Walk Length (mins):</h2>
-          <h2><%= @walk %></h2>
+          <h2>Deep-Work Hours:</h2>
+          <h2><%= @deep.to_i %></h2>
         </div>
         <div class="yo">
-          <h2>Push-Ups (the number):</h2>
-          <h2><%= @pu %></h2>
+          <h2>Walk Mins:</h2>
+          <h2><%= @walk.to_i %></h2>
         </div>
         <div class="yo">
-          <h2>Deep-Work (hours):</h2>
-          <h2><%= @deep %></h2>
+          <h2>Push-Ups:</h2>
+          <h2><%= @pu.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Sleep hours.mins:</h2>
+          <h2><%= @sleep %></h2>
+        </div>
+        <div class="yo">
+          <h2>Episodes Count</h2>
+          <h2><%= @eps.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Videos Count</h2>
+          <h2><%= @vids.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Features Count</h2>
+          <h2><%= @feats.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Articles Count</h2>
+          <h2><%= @artics.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Chapters Count</h2>
+          <h2><%= @chaps.to_i %></h2>
+        </div>
+        <div class="yo">
+          <h2>Revenue Total:</h2>
+          <h2>$<%= @rev.to_s(:delimited) %></h2>
+        </div>
+        <div class="yo">
+          <h2>Cash Collected:</h2>
+          <h2>$<%= @cash.to_s(:delimited) %></h2>
+        </div>
+        <div class="yo not">
+          <h2>Invested Cash:</h2>
+          <h2>$30,000</h2>
         </div>
 
         <div style="clear: both; overflow: hidden;"></div>
         <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
-        <center><h2>Skill Development</h2></center>
+        <center><h2>Business Scores</h2></center>
 
         <div class="yo not">
-          <h2>Skill Score [code]:</h2>
-          <h2>4.1</h2>
-        </div>
-        <div class="yo not">
-          <h2>Skill Score [write]:</h2>
-          <h2>4.1</h2>
-        </div>
-        <div class="yo not">
-          <h2>Deep Work Score:</h2>
-          <h2>3.8</h2>
-        </div>
-
-        <div style="clear: both; overflow: hidden;"></div>
-        <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
-        </div>
-        <center><h2>Business</h2></center>
-
-        <div class="yo">
           <h2>Sales Score:</h2>
           <h2>0.2</h2>
         </div>
-        <div class="yo">
+        <div class="yo not">
           <h2>Social Marketing Score:</h2>
           <h2>2.1</h2>
         </div>
@@ -131,18 +149,47 @@
           <h2>Content Marketing Score:</h2>
           <h2>0.83</h2>
         </div>
-        <div class="yo">
+        <div class="yo not">
           <h2>Product Score:</h2>
           <h2>1.98</h2>
         </div>
-        <div class="yo">
+        <div class="yo not">
           <h2>Deep Work Score:</h2>
           <h2>3.8</h2>
         </div>
-        <div class="yo">
+        <div class="yo not">
           <h2>Investment Score:</h2>
           <h2><%= @fin %></h2>
         </div>
+
+      <div style="clear: both; overflow: hidden;"></div>
+      <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+      </div>
+      <center><h2>Skill Development</h2></center>
+
+      <div class="yo not">
+        <h2>Skill Score [code]:</h2>
+        <h2>4.1</h2>
+      </div>
+      <div class="yo not">
+        <h2>Skill Score [write]:</h2>
+        <h2>4.1</h2>
+      </div>
+      <div class="yo not">
+        <h2>Deep Work Score:</h2>
+        <h2>3.8</h2>
+      </div>
+
+      <div style="clear: both; overflow: hidden;"></div>
+
+      <div class="report">
+        <h2>What habits did you do?</h2>
+
+        <select>Habits
+          <% @habits.each do |habit| %>
+            <option><%= habit.to_s %></option>
+          <% end %>
+        </select>
       </div>
 
       <div style="clear: both; overflow: hidden;"></div>

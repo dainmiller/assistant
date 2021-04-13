@@ -1,26 +1,36 @@
+#
+#        😎🔥🌲🎙📚🔫👾
+#
 # Beware... here be metaprogramming
 #
-# TODO: Refactor the F out of this!
-# TODO: Move this to services/
-# NOTE: 3/30 | Everytime you touch the file, make it better  
-# NOTE: 4/05 | [update] refactored but still need to improve 
-#              object lookup patterns
+require_relative '../config/commands'
+
+class Array
+  def then &block
+    block.call
+  end
+end
+
 class Translator
 
   def initialize
-    translate_config_to_methods
-    show_ui
+    setup_app_api with: commands_config_file
   end
 
-  def translate_config_to_methods
-    @cmds = []
-    build_methods_from commands_config_file
+  def setup_app_api(with:)
+    build_methods_from with
   end
+
+  def skipper
+    Translator.new
+  end
+
+  private
 
   def build_methods_from file
     file.each do |obj|
       build_method_for obj
-    end
+    end.then { show_ui }
   end
 
   def build_method_for obj
@@ -54,7 +64,7 @@ class Translator
 
   def log obj
     obj.values.map { |attrs|
-      Logger.new.increase_score file(attrs), Commands::ADDITIVE
+      Logger.new.increase_score "config/health/#{file(attrs)}", Commands::ADDITIVE
     }
   end
 
@@ -64,11 +74,12 @@ class Translator
   end
 
   def present_selections
+    @method_mapper = {}
     p "======================================"
     p "Pick what you want to do next."
     p dynamic_dialogue
     user_selection = gets.strip
-    call_method find_method obj, user_selection
+    call_method find_method @method_mapper, user_selection
   end
 
   def dynamic_dialogue
@@ -76,14 +87,15 @@ class Translator
   end
 
   def method_mapper
-    @cmds.each_with_index do |cmd, i|
-      @method_mapper[i] = cmd
+    ["walk", "water"].each_with_index do |t, i|
+      @method_mapper[t] = i
     end
+    return @method_mapper
   end
 
   def find_method obj, user_selection
     return obj.find { |e|
-      e[0].to_i == "#{user_selection}".to_i
+      e[1].to_i == "#{user_selection}".to_i
     }.first
   end
 
