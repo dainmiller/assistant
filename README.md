@@ -10,7 +10,7 @@ NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we
       If you want to, just: `vi .gitignore` then ADD to the file -> `db/data/my_database.yaml`, then save, then `git rm -r --cached db/data/my_database.yaml` etc as needed.
 
 ## Score Dashboard:
-> Example Dashboard (these are all DEMO scores - not real):
+> Example Dashboard (these are all DEMO scores):
 > <img width="1357" alt="Screen Shot 2021-04-13 at 3 59 00 PM" src="https://user-images.githubusercontent.com/46613794/114613377-3e932400-9c71-11eb-9da1-2f9db35b6627.png">
 
 ## Bot CLI:
