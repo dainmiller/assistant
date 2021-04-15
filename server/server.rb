@@ -30,6 +30,7 @@ get '/' do
   @chaps  = File.read('config/indiv/chaps.txt').to_f.round(2)
   @rev    = File.read('config/indiv/rev.txt').to_f
   @cash   = File.read('config/indiv/cash.txt').to_f
+  @cmark  = File.read('config/biz/content_marketing.txt').to_f
   erb :home
 end
 
