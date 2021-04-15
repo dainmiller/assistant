@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/contrib'
 require 'yaml'
+require 'pry'
 require_relative '../config/globals'
 require 'rack/csrf'
 require 'chartkick'
@@ -32,6 +33,22 @@ get '/' do
   @cash   = File.read('config/indiv/cash.txt').to_f
   @cmark  = File.read('config/biz/content_marketing.txt').to_f
   erb :home
+end
+
+def updated_today item
+  v = false
+  YAML.load(File.read('db/data/my_database.yaml'))['log'].each do |key, value|
+    v = false
+    value.each do |_key, _value|
+      v = false
+      if _value[item].nil?
+        v = false
+      else
+        return true
+      end
+    end
+  end
+  return v
 end
 
 get '/reports' do
