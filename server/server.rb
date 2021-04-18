@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative '../db/database.rb'
 require 'sinatra/contrib'
 require 'yaml'
 require 'pry'
@@ -54,7 +55,27 @@ end
 get '/reports' do
   @name   = Globals::NAME
   @title = "Deployments per day"
-  @ddata = {'2015-07-20 00:00:00 UTC' => 2, '2015-07-21 00:00:00 UTC' => 4, '2015-07-22 00:00:00 UTC' => 1, '2015-07-23 00:00:00 UTC' => 7}
+  sleep_vals = []
+  sleep_dates = []
+
+  Database.new.all.each do |date|
+    date[1].each do |logs|
+      if logs[1]['sleep']
+        sleep_vals << logs[1]['sleep']
+        sleep_dates << date[0]
+      end
+    end
+  end
+
+  x_y_coords = []
+  sleep_dates.each_with_index { |date, i|
+    val = sleep_vals.at(i)
+    x_y_coords << {date.to_s => val}
+  }
+
+  x_y_coords = x_y_coords.reduce Hash.new, :merge
+
+  @ddata = x_y_coords
   erb :reports
 end
 

@@ -46,8 +46,6 @@
     <center>
 
       <div style="width: 1300px;">
-        <span class="pull-right"><span style="border: 1px red solid; padding: 5px; border-radius: 5px;margin-left: 10px;">RED</span> = Not Implemented
-          </span>
           <span class="pull-right"><span style="background: green; color: #fff; padding: 5px; border-radius: 5px;">GREEN</span> = Updated Recently
           </span>
 
@@ -60,27 +58,27 @@
         <h2>Cumulative Scores</h2>
 
         <div class="yo <% if updated_today('phys') %>green<% end %>">
-          <h2>Physical Health Score:</h2>
+          <h2>Physical Health Score</h2>
           <h2><%= @phys %></h2>
         </div>
         <div class="yo <% if updated_today('men') %>green<% end %>">
-          <h2>Mental Health Score:</h2>
+          <h2>Mental Health Score</h2>
           <h2><%= @men %></h2>
         </div>
         <div class="yo <% if updated_today('spir') %>green<% end %>">
-          <h2>Spiritual Health Score:</h2>
+          <h2>Spiritual Health Score</h2>
           <h2><%= @spir %></h2>
         </div>
         <div class="yo <% if updated_today('emo') %>green<% end %>">
-          <h2>Emotonial Health Score:</h2>
+          <h2>Emotonial Health Score</h2>
           <h2><%= @emo %></h2>
         </div>
         <div class="yo <% if updated_today('intel') %>green<% end %>">
-          <h2>Intelligence Score:</h2>
+          <h2>Intelligence Score</h2>
           <h2><%= @intel %></h2>
         </div>
         <div class="yo <% if updated_today('fin') %>green<% end %>">
-          <h2>Financial Score:</h2>
+          <h2>Financial Score</h2>
           <h2><%= @fin %></h2>
         </div>
 
@@ -90,19 +88,19 @@
         <center><h2>Individual Tracking</h2></center>
 
         <div class="yo <% if updated_today('deep_work') %>green<% end %>">
-          <h2>Deep-Work Hours:</h2>
+          <h2>Deep-Work Hours</h2>
           <h2><%= @deep.to_i %></h2>
         </div>
         <div class="yo <% if updated_today('walk') %>green<% end %>">
-          <h2>Walk Mins:</h2>
+          <h2>Walk Mins</h2>
           <h2><%= @walk.to_i %></h2>
         </div>
         <div class="yo <% if updated_today('push_ups') %>green<% end %>">
-          <h2>Push-Ups:</h2>
+          <h2>Push-Ups</h2>
           <h2><%= @pu.to_i %></h2>
         </div>
         <div class="yo <% if updated_today('sleep') %>green<% end %>">
-          <h2>Sleep hours.mins:</h2>
+          <h2>Sleep hours.mins</h2>
           <h2><%= @sleep %></h2>
         </div>
         <div class="yo <% if updated_today('eps') %>green<% end %>">
@@ -126,48 +124,43 @@
           <h2><%= @chaps.to_i %></h2>
         </div>
         <div class="yo <% if updated_today('rev') %>green<% end %>">
-          <h2>Revenue Total:</h2>
+          <h2>Revenue Total</h2>
           <h2>$<%= @rev.to_s(:delimited) %></h2>
         </div>
         <div class="yo <% if updated_today('cash') %>green<% end %>">
-          <h2>Cash Collected:</h2>
+          <h2>Cash Collected</h2>
           <h2>$<%= @cash.to_s(:delimited) %></h2>
         </div>
-        <div class="yo not">
-          <h2>Invested Cash:</h2>
-          <h2>$30,000</h2>
-        </div>
+        <!--<div class="yo not">
+          <h2>Invested Cash</h2>
+          <h2>$0</h2>
+        </div> -->
 
         <div style="clear: both; overflow: hidden;"></div>
         <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
         <center><h2>Business Scores</h2></center>
 
+        <div class="yo">
+          <h2>Content Marketing Score</h2>
+          <h2><%= @cmark %></h2>
+        </div>
+        <!--
         <div class="yo not">
-          <h2>Sales Score:</h2>
+          <h2>Sales Score</h2>
           <h2>0.2</h2>
         </div>
         <div class="yo not">
-          <h2>Social Marketing Score:</h2>
-          <h2>2.1</h2>
-        </div>
-        <div class="yo">
-          <h2>Content Marketing Score:</h2>
-          <h2><%= @cmark %></h2>
-        </div>
-        <div class="yo not">
-          <h2>Product Score:</h2>
+          <h2>Product Score</h2>
           <h2>1.98</h2>
         </div>
         <div class="yo not">
-          <h2>Deep Work Score:</h2>
-          <h2>3.8</h2>
+          <h2>Social Marketing Score</h2>
+          <h2>2.1</h2>
         </div>
-        <div class="yo not">
-          <h2>Investment Score:</h2>
-          <h2><%= @fin %></h2>
-        </div>
+        -->
 
+        <!--
       <div style="clear: both; overflow: hidden;"></div>
       <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
       </div>
@@ -182,9 +175,9 @@
         <h2>4.1</h2>
       </div>
       <div class="yo not">
-        <h2>Deep Work Score:</h2>
+        <h2>Deep Work Score</h2>
         <h2>3.8</h2>
-      </div>
+      </div> -->
 
       <div style="clear: both; overflow: hidden;"></div>
 

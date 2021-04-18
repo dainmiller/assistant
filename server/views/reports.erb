@@ -59,10 +59,9 @@
         <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
         </div>
 
-        <div class="report">
-          <h2>Cumulative Habits</h2>
-          <%= line_chart @ddata %>
-          <canvas id="myChart" width="400" height="400"></canvas>
+        <div class="report" style="width: 50%">
+          <h2>Sleep Log</h2>
+          <canvas id="myChart" width="200" height="200"></canvas>
         </div>
 
         <script>
@@ -71,9 +70,9 @@
                     var myChart = new Chart(ctx, {
                                 type: 'line',
                                 data: {
-                                            labels: e,
+                                            labels: <%= @ddata.keys %>,
                                             datasets: [{
-                                                        label: '# of Votes',
+                                                        label: '# of Hours Slept',
                                                         data: <%= @ddata.values %>,
                                                         backgroundColor: [
                                                                     'rgba(255, 99, 132, 0.2)',
@@ -106,14 +105,6 @@
 
         <div style="clear: both; overflow: hidden;"></div>
 
-        <div style="margin-top:-50px;width: 225px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
-        </div>
-        <h2>Comparing Habits</h2>
-
-        <div class="yo">
-          <h2>Physical Health Score:</h2>
-          <h2><%= @phys %></h2>
-        </div>
       </div>
     </center>
   </body>

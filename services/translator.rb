@@ -14,15 +14,15 @@ end
 class Translator
 
   def initialize
-    setup_app_api with: commands_config_file
+    setup_app_api config: commands_config_file
   end
 
-  def setup_app_api(with:)
-    build_methods_from with
+  def setup_app_api(config:)
+    build_methods_from config
   end
 
   def skipper
-    Translator.new
+    new
   end
 
   private
