@@ -17,7 +17,7 @@ NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we
 
 ## Bot CLI:
 > Example CLI Interface: <br />
-![Screen Shot 2021-04-07 at 6 28 54 PM](https://user-images.githubusercontent.com/46613794/113942639-22a20500-97cf-11eb-9439-e6dee5f1f03b.png)
+> <img width="481" alt="Screen Shot 2021-04-25 at 10 15 19 AM" src="https://user-images.githubusercontent.com/46613794/115996912-2dbaaa80-a5af-11eb-8c8f-06cdf1cc1413.png">
 
 
 ## Sample Analysis
