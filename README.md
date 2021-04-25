@@ -11,7 +11,9 @@ NOTE: You can exclude `db/data/my_database.yaml` from git for privacy - since we
 
 ## Score Dashboard:
 > Example Dashboard (these are all DEMO scores):
-> <img width="1357" alt="Screen Shot 2021-04-13 at 3 59 00 PM" src="https://user-images.githubusercontent.com/46613794/114613377-3e932400-9c71-11eb-9da1-2f9db35b6627.png">
+> <img width="1074" alt="Screen Shot 2021-04-25 at 10 14 02 AM" src="https://user-images.githubusercontent.com/46613794/115996883-0f54af00-a5af-11eb-85b3-e5c0932229de.png">
+> <img width="999" alt="Screen Shot 2021-04-25 at 10 14 07 AM" src="https://user-images.githubusercontent.com/46613794/115996889-14196300-a5af-11eb-9657-f994ff350d5d.png">
+
 
 ## Bot CLI:
 > Example CLI Interface: <br />
