@@ -103,6 +103,10 @@
           <h2>Sleep hours.mins</h2>
           <h2><%= @sleep %></h2>
         </div>
+        <div class="yo <% if updated_today('groom') %>green<% end %>">
+          <h2>Groom Times</h2>
+          <h2><%= @groom %></h2>
+        </div>
         <div class="yo <% if updated_today('eps') %>green<% end %>">
           <h2>Episodes Count</h2>
           <h2><%= @eps.to_i %></h2>
@@ -138,6 +142,7 @@
 
         <div style="clear: both; overflow: hidden;"></div>
         <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
+
         </div>
         <center><h2>Business Scores</h2></center>
 
@@ -145,7 +150,6 @@
           <h2>Content Marketing Score</h2>
           <h2><%= @cmark %></h2>
         </div>
-        <!--
         <div class="yo not">
           <h2>Sales Score</h2>
           <h2>0.2</h2>
@@ -158,9 +162,7 @@
           <h2>Social Marketing Score</h2>
           <h2>2.1</h2>
         </div>
-        -->
 
-        <!--
       <div style="clear: both; overflow: hidden;"></div>
       <div style="margin-top: -40px;width: 200px; position: relative; top: 55px;z-index:-1; background: #FFFBCC; height: 40px;transform: rotate(-2deg);">
       </div>
@@ -177,7 +179,7 @@
       <div class="yo not">
         <h2>Deep Work Score</h2>
         <h2>3.8</h2>
-      </div> -->
+      </div>
 
       <div style="clear: both; overflow: hidden;"></div>
 

@@ -5,6 +5,7 @@
 #
 require_relative '../config/commands'
 
+
 class Array
   def then &block
     block.call

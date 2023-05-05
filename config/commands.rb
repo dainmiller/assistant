@@ -54,7 +54,7 @@ class Commands
   def scores
     @logger.files.each do |file, score|
       p "Score: #{score} for area of life - #{file}"
-    end.then { sleep(2) and reset } # love the `then` ❤️
+    end.then { sleep(2) and reset }
   end
 
   def skipper
@@ -225,6 +225,7 @@ class Commands
     return reset if bool == 'skip'
     if bool == 'yes'
       log 'config/health/phys', ADDITIVE
+      log 'config/indiv/groom', 1
     else
       brush_teeth
     end
